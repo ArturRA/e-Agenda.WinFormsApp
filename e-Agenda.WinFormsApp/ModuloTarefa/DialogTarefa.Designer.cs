@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            label1=new Label();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(122, 170);
-            label1.Name = "label1";
-            label1.Size = new Size(285, 37);
-            label1.TabIndex = 1;
-            label1.Text = "Formulário de Tarefa";
+            label1.AutoSize=true;
+            label1.Font=new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location=new Point(122, 170);
+            label1.Name="label1";
+            label1.Size=new Size(285, 37);
+            label1.TabIndex=1;
+            label1.Text="Formulário de Tarefa";
             // 
-            // TelaTarefaForm
+            // DialogTarefa
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(612, 443);
+            AutoScaleDimensions=new SizeF(7F, 15F);
+            AutoScaleMode=AutoScaleMode.Font;
+            ClientSize=new Size(612, 443);
             Controls.Add(label1);
-            Name = "TelaTarefaForm";
-            Text = "TelaTarefaForm";
+            Name="DialogTarefa";
+            StartPosition=FormStartPosition.CenterScreen;
+            Text="TelaTarefaForm";
             ResumeLayout(false);
             PerformLayout();
         }

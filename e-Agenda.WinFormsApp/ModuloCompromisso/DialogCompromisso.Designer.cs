@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components=new System.ComponentModel.Container();
             txtId=new TextBox();
             label1=new Label();
             label2=new Label();
@@ -39,7 +40,8 @@
             label5=new Label();
             dtpHorarioFim=new DateTimePicker();
             checkBoxMarcarContato=new CheckBox();
-            comboBox1=new ComboBox();
+            cbContatos=new ComboBox();
+            entidadeContatoBindingSource=new BindingSource(components);
             label6=new Label();
             rdbRemoto=new RadioButton();
             rdbPresencial=new RadioButton();
@@ -47,6 +49,7 @@
             panelLocalizacao=new Panel();
             btnGravar=new Button();
             btnCancelar=new Button();
+            ((System.ComponentModel.ISupportInitialize)entidadeContatoBindingSource).BeginInit();
             panelLocalizacao.SuspendLayout();
             SuspendLayout();
             // 
@@ -83,6 +86,7 @@
             txtAssunto.Name="txtAssunto";
             txtAssunto.Size=new Size(277, 23);
             txtAssunto.TabIndex=7;
+            txtAssunto.TextChanged+=txtValidarCompromisso;
             // 
             // label3
             // 
@@ -148,14 +152,18 @@
             checkBoxMarcarContato.Text="Deseja marcar um contato neste compromisso?";
             checkBoxMarcarContato.UseVisualStyleBackColor=true;
             // 
-            // comboBox1
+            // cbContatos
             // 
-            comboBox1.Enabled=false;
-            comboBox1.FormattingEnabled=true;
-            comboBox1.Location=new Point(71, 210);
-            comboBox1.Name="comboBox1";
-            comboBox1.Size=new Size(277, 23);
-            comboBox1.TabIndex=15;
+            cbContatos.DropDownStyle=ComboBoxStyle.DropDownList;
+            cbContatos.FormattingEnabled=true;
+            cbContatos.Location=new Point(71, 210);
+            cbContatos.Name="cbContatos";
+            cbContatos.Size=new Size(277, 23);
+            cbContatos.TabIndex=15;
+            // 
+            // entidadeContatoBindingSource
+            // 
+            entidadeContatoBindingSource.DataSource=typeof(WinApp.ModuloContato.EntidadeContato);
             // 
             // label6
             // 
@@ -196,6 +204,7 @@
             txtLocalizacao.Name="txtLocalizacao";
             txtLocalizacao.Size=new Size(187, 23);
             txtLocalizacao.TabIndex=19;
+            txtLocalizacao.TextChanged+=txtValidarCompromisso;
             // 
             // panelLocalizacao
             // 
@@ -236,7 +245,7 @@
             Controls.Add(btnGravar);
             Controls.Add(txtLocalizacao);
             Controls.Add(label6);
-            Controls.Add(comboBox1);
+            Controls.Add(cbContatos);
             Controls.Add(checkBoxMarcarContato);
             Controls.Add(dtpHorarioFim);
             Controls.Add(label5);
@@ -254,7 +263,9 @@
             MinimizeBox=false;
             Name="DialogCompromisso";
             ShowIcon=false;
+            StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro de Compromissos";
+            ((System.ComponentModel.ISupportInitialize)entidadeContatoBindingSource).EndInit();
             panelLocalizacao.ResumeLayout(false);
             panelLocalizacao.PerformLayout();
             ResumeLayout(false);
@@ -274,7 +285,7 @@
         private Label label5;
         private DateTimePicker dtpHorarioFim;
         private CheckBox checkBoxMarcarContato;
-        private ComboBox comboBox1;
+        private ComboBox cbContatos;
         private Label label6;
         private RadioButton rdbRemoto;
         private RadioButton rdbPresencial;
@@ -282,5 +293,6 @@
         private Panel panelLocalizacao;
         private Button btnGravar;
         private Button btnCancelar;
+        private BindingSource entidadeContatoBindingSource;
     }
 }

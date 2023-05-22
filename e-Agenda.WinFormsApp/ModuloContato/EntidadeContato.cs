@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinApp.Compartilhado;
+using System.Text.RegularExpressions;
 
 namespace e_Agenda.WinApp.ModuloContato
 {
@@ -22,6 +23,25 @@ namespace e_Agenda.WinApp.ModuloContato
         public override string ToString()
         {
             return $"Id: {Id}, Nome: {Nome}, Telefone: {Telefone}, Email: {Email}, Cargo: {Cargo}, Empresa: {Empresa}";
+        }
+
+        public List<string> Validar()
+        {
+            List<string> erros = new List<string>();
+            if (string.IsNullOrWhiteSpace(Nome))
+                erros.Add("Digite um Nome valido");
+            if (string.IsNullOrWhiteSpace(Telefone) || Telefone.Trim().Length < 14)
+                erros.Add("Digite um Telefone valido");
+
+            Regex validarEmail = new Regex("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+            if (string.IsNullOrWhiteSpace(Email) || !validarEmail.IsMatch(Email))
+                erros.Add("Digite um Email valido");
+            if (string.IsNullOrWhiteSpace(Cargo))
+                erros.Add("Digite um Cargo valido");
+            if (string.IsNullOrWhiteSpace(Empresa))
+                erros.Add("Digite um Empresa valido");
+
+            return erros;
         }
     }
 }

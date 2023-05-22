@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloContato
+﻿using e_Agenda.WinApp.ModuloTarefa;
+
+namespace e_Agenda.WinApp.ModuloContato
 {
     public partial class ListagemContatoControl : UserControl
     {

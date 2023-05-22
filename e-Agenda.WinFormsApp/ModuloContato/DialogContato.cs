@@ -39,9 +39,43 @@
             string empresa = txtEmpresa.Text;
 
             entidadeContato = new EntidadeContato(nome, telefone, email, cargo, empresa);
+            List<string> resultado = entidadeContato.Validar();
+            if (resultado.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarToolStrip(resultado[0]);
+                DialogResult = DialogResult.None;
+            }
+            else
+            {
+                if (txtId.Text != "0")
+                    entidadeContato.Id = Convert.ToInt32(txtId.Text);
+                TelaPrincipalForm.Instancia.AtualizarToolStrip("");
+            }
+        }
 
-            if (txtId.Text != "0")
-                entidadeContato.Id = Convert.ToInt32(txtId.Text);
+        private void txtValidarContato(object sender, EventArgs e)
+        {
+            string nome = txtNome.Text;
+
+            string telefone = txtTelefone.Text;
+
+            string email = txtEmail.Text;
+
+            string cargo = txtCargo.Text;
+
+            string empresa = txtEmpresa.Text;
+
+            EntidadeContato testValidar = new EntidadeContato(nome, telefone, email, cargo, empresa);
+            List<string> resultado = testValidar.Validar();
+            if (resultado.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarToolStrip(resultado[0]);
+                DialogResult = DialogResult.None;
+            }
+            else
+            {
+                TelaPrincipalForm.Instancia.AtualizarToolStrip("");
+            }
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using e_Agenda.WinApp.ModuloContato;
-using static e_Agenda.WinFormsApp.ModuloCompromisso.EntidadeCompromisso;
-
-namespace e_Agenda.WinFormsApp.ModuloCompromisso
+﻿namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
     public partial class DialogCompromissoFiltro : Form
     {
@@ -23,8 +20,8 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
         private void rdbLocalizacaoChanged(object? sender, EventArgs e)
         {
-            RadioButton rdb = (RadioButton)sender;
-            TipoFiltro = (TipoDoFiltro)Convert.ToInt32(rdb.Tag);
+            RadioButton? rdb = sender as RadioButton;
+            TipoFiltro = (TipoDoFiltro)Convert.ToInt32(rdb!.Tag);
         }
 
         public TipoDoFiltro TipoDeFiltroSelecionado()
@@ -32,14 +29,14 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             return TipoFiltro;
         }
 
-        public DateTime DataInicial()
+        public DateTime DataInicial
         {
-            return dtpDataInicial.Value;
+            get { return dtpDataInicial.Value; }
         }
 
-        public DateTime DataFinal()
+        public DateTime DataFinal
         {
-            return dtpDataFinal.Value;
+            get { return dtpDataFinal.Value; }
         }
     }
 }

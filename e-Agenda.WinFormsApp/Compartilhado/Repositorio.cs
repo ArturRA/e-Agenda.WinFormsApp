@@ -14,14 +14,8 @@
 
         public void Editar(TipoEntidade entidadeComValoresAtualizados)
         {
-            TipoEntidade entidadeParaAtualizar = SelecionarElementoPeloId(entidadeComValoresAtualizados.Id);
-            entidadeParaAtualizar.Editar(entidadeComValoresAtualizados);
-            //// Pega o tipo e para cada propriedade, que não seja o id, atualiza o valor
-            //typeof(TipoEntidade).GetProperties().ToList().ForEach(p =>
-            //{
-            //    if (!p.Name.Equals("Id"))
-            //        p.SetValue(entidadeParaAtualizar, p.GetValue(entidadeComValoresAtualizados));
-            //});
+            TipoEntidade? entidadeParaAtualizar = SelecionarElementoPeloId(entidadeComValoresAtualizados.Id);
+            entidadeParaAtualizar!.Editar(entidadeComValoresAtualizados);
         }
 
         public void Excluir(TipoEntidade elementoParaExcluir)
@@ -37,14 +31,6 @@
         public List<TipoEntidade> SelecionarTodaALista()
         {
             return Registros;
-        }
-
-        public bool EstaVazio()
-        {
-            if (Registros.Count == 0)
-                return true;
-            else
-                return false;
         }
     }
 }

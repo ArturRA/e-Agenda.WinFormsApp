@@ -7,18 +7,36 @@ namespace e_Agenda.WinApp
 {
     public partial class TelaPrincipalForm : Form
     {
+        public static TelaPrincipalForm Instancia { get; set; }
+
         private Controlador Controlador { get; set; }
         private RepositorioContato RepositorioContato { get; set; } = new RepositorioContato();
         private RepositorioCompromisso RepositorioCompromisso { get; set; } = new RepositorioCompromisso();
 
 
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            PreencherEntidadesExemplo();
+            Instancia=this;
         }
+
+        private void PreencherEntidadesExemplo()
+        {
+            RepositorioContato.Inserir(new EntidadeContato("Ricardo", "49 9 9999-9999", "temp@gmail.com", "Empregado", "Sadia"));
+            RepositorioContato.Inserir(new EntidadeContato("Bruno", "49 9 9999-9999", "temp@gmail.com", "Empregado", "Seara"));
+            RepositorioContato.Inserir(new EntidadeContato("Maria", "49 9 9999-9999", "temp@gmail.com", "Empregado", "Perdigao"));
+        }
+
+        public void AtualizarToolStrip(string text)
+        {
+            statusLabelTelaPrincipal.Text = text;
+        }
+
         private void compromissosMenuItem_Click(object sender, EventArgs e)
         {
-            Controlador = new ControladorCompromisso(RepositorioCompromisso);
+            Controlador = new ControladorCompromisso(RepositorioCompromisso, RepositorioContato);
 
             ConfigurarTelaPrincipal(Controlador);
         }
@@ -51,6 +69,11 @@ namespace e_Agenda.WinApp
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnFiltrar.ToolTipText= controlador.ToolTipFiltrar;
+
+            btnInserir.Enabled = controlador.ToolTipEnableInserir;
+            btnEditar.Enabled = controlador.ToolTipEnableEditar;
+            btnExcluir.Enabled = controlador.ToolTipEnableExcluir;
+            btnFiltrar.Enabled = controlador.ToolTipEnableFiltrar;
         }
 
         private void ConfigurarListagem(Controlador controladorBase)

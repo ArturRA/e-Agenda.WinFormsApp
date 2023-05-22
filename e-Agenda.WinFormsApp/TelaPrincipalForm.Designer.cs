@@ -40,7 +40,7 @@ namespace e_Agenda.WinApp
             categoriasMenuItem=new ToolStripMenuItem();
             relatóriosToolStripMenuItem=new ToolStripMenuItem();
             statusStrip1=new StatusStrip();
-            toolStripStatusLabel1=new ToolStripStatusLabel();
+            statusLabelTelaPrincipal=new ToolStripStatusLabel();
             toolStrip1=new ToolStrip();
             btnInserir=new ToolStripButton();
             btnEditar=new ToolStripButton();
@@ -118,18 +118,17 @@ namespace e_Agenda.WinApp
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { statusLabelTelaPrincipal });
             statusStrip1.Location=new Point(0, 428);
             statusStrip1.Name="statusStrip1";
             statusStrip1.Size=new Size(800, 22);
             statusStrip1.TabIndex=1;
             statusStrip1.Text="statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // statusLabelTelaPrincipal
             // 
-            toolStripStatusLabel1.Name="toolStripStatusLabel1";
-            toolStripStatusLabel1.Size=new Size(118, 17);
-            toolStripStatusLabel1.Text="toolStripStatusLabel1";
+            statusLabelTelaPrincipal.Name="statusLabelTelaPrincipal";
+            statusLabelTelaPrincipal.Size=new Size(0, 17);
             // 
             // toolStrip1
             // 
@@ -143,6 +142,7 @@ namespace e_Agenda.WinApp
             // btnInserir
             // 
             btnInserir.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnInserir.Enabled=false;
             btnInserir.Image=Resources.add_circle_FILL0_wght400_GRAD0_opsz24;
             btnInserir.ImageScaling=ToolStripItemImageScaling.None;
             btnInserir.ImageTransparentColor=Color.Magenta;
@@ -155,6 +155,7 @@ namespace e_Agenda.WinApp
             // btnEditar
             // 
             btnEditar.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnEditar.Enabled=false;
             btnEditar.Image=Resources.edit_FILL0_wght400_GRAD0_opsz24;
             btnEditar.ImageScaling=ToolStripItemImageScaling.None;
             btnEditar.ImageTransparentColor=Color.Magenta;
@@ -167,6 +168,7 @@ namespace e_Agenda.WinApp
             // btnExcluir
             // 
             btnExcluir.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnExcluir.Enabled=false;
             btnExcluir.Image=Resources.delete_FILL0_wght400_GRAD0_opsz24;
             btnExcluir.ImageScaling=ToolStripItemImageScaling.None;
             btnExcluir.ImageTransparentColor=Color.Magenta;
@@ -179,6 +181,7 @@ namespace e_Agenda.WinApp
             // btnFiltrar
             // 
             btnFiltrar.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Enabled=false;
             btnFiltrar.Image=Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
             btnFiltrar.ImageScaling=ToolStripItemImageScaling.None;
             btnFiltrar.ImageTransparentColor=Color.Magenta;
@@ -244,7 +247,7 @@ namespace e_Agenda.WinApp
         private ToolStripMenuItem categoriasMenuItem;
         private ToolStripMenuItem relatóriosToolStripMenuItem;
         private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel statusLabelTelaPrincipal;
         private ToolStrip toolStrip1;
         private ToolStripButton btnInserir;
         private ToolStripButton btnEditar;

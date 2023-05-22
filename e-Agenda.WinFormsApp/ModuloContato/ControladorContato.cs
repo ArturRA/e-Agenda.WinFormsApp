@@ -6,11 +6,15 @@ namespace e_Agenda.WinApp.ModuloContato
     {
         private RepositorioContato RepositorioContato { get; set; }
         private ListagemContatoControl ListagemContatoControl { get; set; }
-        public override string TipoDoCadastro { get { return "Contato"; } }
+        public override string TipoDoCadastro => "Contato";
+        public override bool ToolTipEnableInserir => true;
+        public override bool ToolTipEnableEditar => true;
+        public override bool ToolTipEnableExcluir => true;
+        public override bool ToolTipEnableFiltrar => false;
 
         public ControladorContato(RepositorioContato repositorioContato)
         {
-            this.RepositorioContato = repositorioContato;
+            RepositorioContato=repositorioContato;
         }
 
 
@@ -98,6 +102,11 @@ namespace e_Agenda.WinApp.ModuloContato
             CarregarContatos();
 
             return ListagemContatoControl;
+        }
+
+        public override void Filtrar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

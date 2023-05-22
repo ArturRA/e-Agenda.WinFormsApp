@@ -4,7 +4,18 @@ namespace e_Agenda.WinApp.ModuloTarefa
 {
     public class ControladorTarefa : Controlador
     {
-        public override string TipoDoCadastro { get { return "Tarefa"; } }
+        public override string TipoDoCadastro => "Tarefa";
+        public override bool ToolTipEnableInserir => true;
+        public override bool ToolTipEnableEditar => true;
+        public override bool ToolTipEnableExcluir => true;
+        public override bool ToolTipEnableFiltrar => false;
+
+        public override void Inserir()
+        {
+            DialogTarefa telaTarefa = new DialogTarefa();
+
+            telaTarefa.ShowDialog();
+        }
 
         public override void Editar()
         {
@@ -16,16 +27,14 @@ namespace e_Agenda.WinApp.ModuloTarefa
         
         }
 
-        public override void Inserir()
-        {
-            DialogTarefa telaTarefa = new DialogTarefa();
-
-            telaTarefa.ShowDialog();
-        }
-
         public override UserControl ObterListagem()
         {
             return new ListagemTarefaControl();
+        }
+
+        public override void Filtrar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

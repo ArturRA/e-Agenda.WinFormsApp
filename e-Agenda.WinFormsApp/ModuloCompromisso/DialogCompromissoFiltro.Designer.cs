@@ -66,7 +66,7 @@
             rdbPassados.Location=new Point(10, 37);
             rdbPassados.Name="rdbPassados";
             rdbPassados.Size=new Size(257, 19);
-            rdbPassados.TabIndex=17;
+            rdbPassados.TabIndex=2;
             rdbPassados.TabStop=true;
             rdbPassados.Tag="1";
             rdbPassados.Text="Visualizar somente Compromissos passados";
@@ -78,7 +78,7 @@
             rdbTodos.Location=new Point(12, 12);
             rdbTodos.Name="rdbTodos";
             rdbTodos.Size=new Size(205, 19);
-            rdbTodos.TabIndex=18;
+            rdbTodos.TabIndex=1;
             rdbTodos.TabStop=true;
             rdbTodos.Tag="0";
             rdbTodos.Text="Visualizar todos os Compromissos";
@@ -139,7 +139,7 @@
             rdbFuturos.Location=new Point(10, 62);
             rdbFuturos.Name="rdbFuturos";
             rdbFuturos.Size=new Size(247, 19);
-            rdbFuturos.TabIndex=24;
+            rdbFuturos.TabIndex=3;
             rdbFuturos.TabStop=true;
             rdbFuturos.Tag="2";
             rdbFuturos.Text="Visualizar somente Compromissos futuros";
@@ -171,6 +171,7 @@
             MinimizeBox=false;
             Name="DialogCompromissoFiltro";
             ShowIcon=false;
+            StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro de Compromissos";
             panelLocalizacao.ResumeLayout(false);
             panelLocalizacao.PerformLayout();

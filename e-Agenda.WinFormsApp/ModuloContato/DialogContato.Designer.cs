@@ -34,7 +34,6 @@
             txtId=new TextBox();
             label2=new Label();
             txtNome=new TextBox();
-            txtTelefone=new TextBox();
             txtCargo=new TextBox();
             txtEmail=new TextBox();
             txtEmpresa=new TextBox();
@@ -42,6 +41,7 @@
             label4=new Label();
             label5=new Label();
             label6=new Label();
+            txtTelefone=new MaskedTextBox();
             SuspendLayout();
             // 
             // btnGravar
@@ -100,20 +100,15 @@
             txtNome.Name="txtNome";
             txtNome.Size=new Size(395, 23);
             txtNome.TabIndex=5;
-            // 
-            // txtTelefone
-            // 
-            txtTelefone.Location=new Point(90, 79);
-            txtTelefone.Name="txtTelefone";
-            txtTelefone.Size=new Size(149, 23);
-            txtTelefone.TabIndex=6;
+            txtNome.TextChanged+=txtValidarContato;
             // 
             // txtCargo
             // 
             txtCargo.Location=new Point(90, 108);
             txtCargo.Name="txtCargo";
-            txtCargo.Size=new Size(149, 23);
+            txtCargo.Size=new Size(150, 23);
             txtCargo.TabIndex=7;
+            txtCargo.TextChanged+=txtValidarContato;
             // 
             // txtEmail
             // 
@@ -121,6 +116,7 @@
             txtEmail.Name="txtEmail";
             txtEmail.Size=new Size(149, 23);
             txtEmail.TabIndex=8;
+            txtEmail.TextChanged+=txtValidarContato;
             // 
             // txtEmpresa
             // 
@@ -128,6 +124,7 @@
             txtEmpresa.Name="txtEmpresa";
             txtEmpresa.Size=new Size(149, 23);
             txtEmpresa.TabIndex=9;
+            txtEmpresa.TextChanged+=txtValidarContato;
             // 
             // label3
             // 
@@ -165,11 +162,21 @@
             label6.TabIndex=13;
             label6.Text="Cargo:";
             // 
-            // TelaDialogContatoForm
+            // txtTelefone
+            // 
+            txtTelefone.Location=new Point(90, 79);
+            txtTelefone.Mask="00 0 0000-0000";
+            txtTelefone.Name="txtTelefone";
+            txtTelefone.Size=new Size(150, 23);
+            txtTelefone.TabIndex=14;
+            txtTelefone.TextChanged+=txtValidarContato;
+            // 
+            // DialogContato
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(497, 226);
+            Controls.Add(txtTelefone);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -177,7 +184,6 @@
             Controls.Add(txtEmpresa);
             Controls.Add(txtEmail);
             Controls.Add(txtCargo);
-            Controls.Add(txtTelefone);
             Controls.Add(txtNome);
             Controls.Add(label2);
             Controls.Add(txtId);
@@ -187,7 +193,7 @@
             FormBorderStyle=FormBorderStyle.FixedDialog;
             MaximizeBox=false;
             MinimizeBox=false;
-            Name="TelaDialogContatoForm";
+            Name="DialogContato";
             ShowIcon=false;
             StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro de Contatos";
@@ -203,7 +209,7 @@
         private TextBox txtId;
         private Label label2;
         private TextBox txtNome;
-        private TextBox txtTelefone;
+        private MaskedTextBox txtTelefone;
         private TextBox txtCargo;
         private TextBox txtEmail;
         private TextBox txtEmpresa;

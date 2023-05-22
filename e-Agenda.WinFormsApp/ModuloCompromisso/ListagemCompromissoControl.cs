@@ -1,5 +1,4 @@
-﻿using e_Agenda.WinApp.ModuloContato;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+﻿using static e_Agenda.WinFormsApp.ModuloCompromisso.DialogCompromissoFiltro;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
@@ -17,25 +16,31 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             entidades.ForEach(c => listBoxEntidades.Items.Add(c));
         }
 
-        public void AtualizarRegistrosPassados(List<EntidadeCompromisso> entidades)
+        public void AtualizarRegistrosComFiltro(List<EntidadeCompromisso> entidades, TipoDoFiltro TipoFiltro, DateTime dataInicial, DateTime dataFinal)
         {
             listBoxEntidades.Items.Clear();
-            entidades.ForEach(c =>
-            {
-                if (DateTime.Compare(c.DataCompromisso, DateTime.Now) < 0)
-                    listBoxEntidades.Items.Add(c);
-            });
-        }
 
-        public void AtualizarRegistrosRange(List<EntidadeCompromisso> entidades, DateTime dataInicial, DateTime dataFinal)
-        {
-            listBoxEntidades.Items.Clear();
-            entidades.ForEach(c =>
+            switch (TipoFiltro)
             {
-                if (c.DataCompromisso > dataInicial
-                 && c.DataCompromisso < dataFinal)
-                    listBoxEntidades.Items.Add(c);
-            });
+                case TipoDoFiltro.Todos:
+                    entidades.ForEach(c => listBoxEntidades.Items.Add(c));
+                    break;
+                case TipoDoFiltro.Passados:
+                    entidades.ForEach(c =>
+                    {
+                        if (DateTime.Compare(c.DataCompromisso, DateTime.Now) < 0)
+                            listBoxEntidades.Items.Add(c);
+                    });
+                    break;
+                case TipoDoFiltro.Futuros:
+                    entidades.ForEach(c =>
+                    {
+                        if (c.DataCompromisso > dataInicial
+                         && c.DataCompromisso < dataFinal)
+                            listBoxEntidades.Items.Add(c);
+                    });
+                    break;
+            }
         }
 
         public EntidadeCompromisso ObterContatoSelecionado()
