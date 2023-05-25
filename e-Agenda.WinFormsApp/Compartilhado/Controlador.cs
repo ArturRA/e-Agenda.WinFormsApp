@@ -2,17 +2,22 @@
 {
     public abstract class Controlador
     {
+        public abstract string TipoDoCadastro { get; }
         public string ToolTipInserir => $"Inserir novo {TipoDoCadastro}";
         public string ToolTipEditar => $"Editar {TipoDoCadastro} existente";
         public string ToolTipExcluir => $"Excluir {TipoDoCadastro} existente";
-        public string ToolTipFiltrar => $"Filtrar {TipoDoCadastro} existente";
+        public virtual string ToolTipFiltrar => "";
+        public virtual string ToolTipAdicionarItens => "";
+        public virtual string ToolTipConcluirItens => "";
         public string ObterTipoCadastro => $"Cadastro de {TipoDoCadastro}";
 
-        public abstract string TipoDoCadastro { get; }
-        public abstract bool ToolTipEnableInserir { get; }
-        public abstract bool ToolTipEnableEditar { get; }
-        public abstract bool ToolTipEnableExcluir { get; }
-        public abstract bool ToolTipEnableFiltrar { get; }
+        public virtual bool ToolTipEnableInserir => true;
+        public virtual bool ToolTipEnableEditar => true;
+        public virtual bool ToolTipEnableExcluir => true;
+        public virtual bool ToolTipEnableFiltrar => false;
+        public virtual bool ToolTipEnableAdicionarItens => false;
+        public virtual bool ToolTipEnableConcluirItens => false;
+
         public abstract void Inserir();
         public abstract void Editar();
         public abstract void Excluir();

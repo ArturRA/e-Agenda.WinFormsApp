@@ -11,9 +11,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         private RepositorioContato RepositorioContato { get; set; }
         private ListagemCompromissoControl ListagemCompromissoControl { get; set; }
         public override string TipoDoCadastro => "Compromisso";
-        public override bool ToolTipEnableInserir => true;
-        public override bool ToolTipEnableEditar => true;
-        public override bool ToolTipEnableExcluir => true;
+        public override string ToolTipFiltrar => $"Filtrar {TipoDoCadastro} existente";
         public override bool ToolTipEnableFiltrar => true;
 
         public ControladorCompromisso(RepositorioCompromisso repositorioCompromisso, RepositorioContato repositorioContato)

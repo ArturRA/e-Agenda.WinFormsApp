@@ -69,11 +69,15 @@ namespace e_Agenda.WinApp
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnFiltrar.ToolTipText= controlador.ToolTipFiltrar;
+            btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
+            btnConcluirItens.ToolTipText = controlador.ToolTipConcluirItens;
 
             btnInserir.Enabled = controlador.ToolTipEnableInserir;
             btnEditar.Enabled = controlador.ToolTipEnableEditar;
             btnExcluir.Enabled = controlador.ToolTipEnableExcluir;
             btnFiltrar.Enabled = controlador.ToolTipEnableFiltrar;
+            btnAdicionarItens.Enabled = controlador.ToolTipEnableAdicionarItens;
+            btnConcluirItens.Enabled = controlador.ToolTipEnableConcluirItens;
         }
 
         private void ConfigurarListagem(Controlador controladorBase)

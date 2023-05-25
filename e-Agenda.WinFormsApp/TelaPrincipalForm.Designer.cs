@@ -49,6 +49,10 @@ namespace e_Agenda.WinApp
             toolStripSeparator1=new ToolStripSeparator();
             labelTipoCadastro=new ToolStripLabel();
             panelRegistros=new Panel();
+            toolStripSeparator2=new ToolStripSeparator();
+            toolStripSeparator3=new ToolStripSeparator();
+            btnAdicionarItens=new ToolStripButton();
+            btnConcluirItens=new ToolStripButton();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -132,7 +136,7 @@ namespace e_Agenda.WinApp
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltrar, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator1, btnAdicionarItens, btnConcluirItens, toolStripSeparator3, labelTipoCadastro });
             toolStrip1.Location=new Point(0, 24);
             toolStrip1.Name="toolStrip1";
             toolStrip1.Size=new Size(800, 45);
@@ -207,6 +211,38 @@ namespace e_Agenda.WinApp
             panelRegistros.Size=new Size(800, 359);
             panelRegistros.TabIndex=3;
             // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name="toolStripSeparator2";
+            toolStripSeparator2.Size=new Size(6, 45);
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name="toolStripSeparator3";
+            toolStripSeparator3.Size=new Size(6, 45);
+            // 
+            // btnAdicionarItens
+            // 
+            btnAdicionarItens.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnAdicionarItens.Enabled=false;
+            btnAdicionarItens.Image=Resources.library_add_FILL0_wght400_GRAD0_opsz24;
+            btnAdicionarItens.ImageScaling=ToolStripItemImageScaling.None;
+            btnAdicionarItens.ImageTransparentColor=Color.Magenta;
+            btnAdicionarItens.Name="btnAdicionarItens";
+            btnAdicionarItens.Padding=new Padding(7);
+            btnAdicionarItens.Size=new Size(42, 42);
+            // 
+            // btnConcluirItens
+            // 
+            btnConcluirItens.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnConcluirItens.Enabled=false;
+            btnConcluirItens.Image=Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            btnConcluirItens.ImageScaling=ToolStripItemImageScaling.None;
+            btnConcluirItens.ImageTransparentColor=Color.Magenta;
+            btnConcluirItens.Name="btnConcluirItens";
+            btnConcluirItens.Padding=new Padding(7);
+            btnConcluirItens.Size=new Size(42, 42);
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
@@ -252,5 +288,9 @@ namespace e_Agenda.WinApp
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoCadastro;
         private ToolStripButton btnFiltrar;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripButton btnAdicionarItens;
+        private ToolStripButton btnConcluirItens;
     }
 }
