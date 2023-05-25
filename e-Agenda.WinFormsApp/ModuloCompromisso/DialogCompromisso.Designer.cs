@@ -165,7 +165,7 @@
             // 
             // entidadeContatoBindingSource
             // 
-            entidadeContatoBindingSource.DataSource=typeof(WinApp.ModuloContato.EntidadeContato);
+            entidadeContatoBindingSource.DataSource=typeof(WinFormsApp.ModuloContato.EntidadeContato);
             // 
             // label6
             // 

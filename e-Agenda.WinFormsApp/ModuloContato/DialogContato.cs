@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.ModuloContato
+﻿namespace e_Agenda.WinFormsApp.ModuloContato
 {
     public partial class DialogContato : Form
     {

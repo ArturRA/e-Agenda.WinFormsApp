@@ -1,5 +1,4 @@
-﻿using e_Agenda.WinApp;
-using e_Agenda.WinApp.ModuloContato;
+﻿using e_Agenda.WinFormsApp.ModuloContato;
 using static e_Agenda.WinFormsApp.ModuloCompromisso.EntidadeCompromisso;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso

@@ -1,6 +1,6 @@
-﻿using e_Agenda.WinApp.Compartilhado;
+﻿using e_Agenda.WinFormsApp.Compartilhado;
 
-namespace e_Agenda.WinApp.ModuloContato
+namespace e_Agenda.WinFormsApp.ModuloContato
 {
     public class ControladorContato : Controlador
     {
@@ -98,11 +98,6 @@ namespace e_Agenda.WinApp.ModuloContato
             CarregarContatos();
 
             return ListagemContatoControl;
-        }
-
-        public override void Filtrar()
-        {
-            throw new NotImplementedException();
         }
     }
 }

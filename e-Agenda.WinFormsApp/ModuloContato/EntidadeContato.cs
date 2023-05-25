@@ -1,7 +1,7 @@
-﻿using e_Agenda.WinApp.Compartilhado;
+﻿using e_Agenda.WinFormsApp.Compartilhado;
 using System.Text.RegularExpressions;
 
-namespace e_Agenda.WinApp.ModuloContato
+namespace e_Agenda.WinFormsApp.ModuloContato
 {
     public class EntidadeContato : Entidade<EntidadeContato>
     {

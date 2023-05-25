@@ -1,6 +1,6 @@
 ﻿using e_Agenda.WinFormsApp.Properties;
 
-namespace e_Agenda.WinApp
+namespace e_Agenda.WinFormsApp
 {
     partial class TelaPrincipalForm
     {

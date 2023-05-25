@@ -1,8 +1,5 @@
-﻿using e_Agenda.WinApp.Compartilhado;
-using e_Agenda.WinApp.ModuloContato;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-using System.Text.RegularExpressions;
+﻿using e_Agenda.WinFormsApp.Compartilhado;
+using e_Agenda.WinFormsApp.ModuloContato;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {

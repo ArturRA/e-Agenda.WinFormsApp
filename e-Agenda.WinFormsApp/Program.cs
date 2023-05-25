@@ -1,5 +1,3 @@
-using e_Agenda.WinApp;
-
 namespace e_Agenda.WinFormsApp
 {
     internal static class Program

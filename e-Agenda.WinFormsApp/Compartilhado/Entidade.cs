@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.Compartilhado
+﻿namespace e_Agenda.WinFormsApp.Compartilhado
 {
     public abstract class Entidade<TipoEntidade> where TipoEntidade : Entidade<TipoEntidade>
     {

@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
     public partial class DialogTarefa : Form
     {

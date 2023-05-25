@@ -1,6 +1,4 @@
-﻿using static e_Agenda.WinFormsApp.ModuloCompromisso.DialogCompromissoFiltro;
-
-namespace e_Agenda.WinFormsApp.ModuloCompromisso
+﻿namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
     public partial class ListagemCompromissoControl : UserControl
     {

@@ -1,13 +1,13 @@
-using e_Agenda.WinApp.Compartilhado;
-using e_Agenda.WinApp.ModuloContato;
-using e_Agenda.WinApp.ModuloTarefa;
+using e_Agenda.WinFormsApp.Compartilhado;
+using e_Agenda.WinFormsApp.ModuloContato;
+using e_Agenda.WinFormsApp.ModuloTarefa;
 using e_Agenda.WinFormsApp.ModuloCompromisso;
 
-namespace e_Agenda.WinApp
+namespace e_Agenda.WinFormsApp
 {
     public partial class TelaPrincipalForm : Form
     {
-        public static TelaPrincipalForm? Instancia { get; set; }
+        public static TelaPrincipalForm Instancia { get; set; }
 
         private Controlador Controlador { get; set; }
         private RepositorioContato RepositorioContato { get; set; } = new RepositorioContato();
