@@ -2,13 +2,16 @@
 {
     public partial class DialogCompromissoFiltro : Form
     {
-        private TipoDoFiltro TipoFiltro { get; set; }
         public enum TipoDoFiltro
         {
             Todos = 0,
             Passados = 1,
             Futuros = 2
         }
+
+        public TipoDoFiltro TipoFiltro { get; private set; }
+        public DateTime DataInicial => dtpDataInicial.Value;
+        public DateTime DataFinal => dtpDataFinal.Value;
 
         public DialogCompromissoFiltro()
         {
@@ -24,19 +27,5 @@
             TipoFiltro = (TipoDoFiltro)Convert.ToInt32(rdb!.Tag);
         }
 
-        public TipoDoFiltro TipoDeFiltroSelecionado()
-        {
-            return TipoFiltro;
-        }
-
-        public DateTime DataInicial
-        {
-            get { return dtpDataInicial.Value; }
-        }
-
-        public DateTime DataFinal
-        {
-            get { return dtpDataFinal.Value; }
-        }
     }
 }

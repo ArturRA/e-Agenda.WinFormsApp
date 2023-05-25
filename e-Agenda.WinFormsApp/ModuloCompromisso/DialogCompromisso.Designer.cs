@@ -121,6 +121,7 @@
             dtpHorarioInicio.Format=DateTimePickerFormat.Custom;
             dtpHorarioInicio.Location=new Point(71, 140);
             dtpHorarioInicio.Name="dtpHorarioInicio";
+            dtpHorarioInicio.ShowUpDown=true;
             dtpHorarioInicio.Size=new Size(100, 23);
             dtpHorarioInicio.TabIndex=11;
             // 
@@ -139,6 +140,7 @@
             dtpHorarioFim.Format=DateTimePickerFormat.Custom;
             dtpHorarioFim.Location=new Point(228, 138);
             dtpHorarioFim.Name="dtpHorarioFim";
+            dtpHorarioFim.ShowUpDown=true;
             dtpHorarioFim.Size=new Size(100, 23);
             dtpHorarioFim.TabIndex=13;
             // 

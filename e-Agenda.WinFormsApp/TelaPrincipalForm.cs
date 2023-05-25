@@ -7,7 +7,7 @@ namespace e_Agenda.WinApp
 {
     public partial class TelaPrincipalForm : Form
     {
-        public static TelaPrincipalForm Instancia { get; set; }
+        public static TelaPrincipalForm? Instancia { get; set; }
 
         private Controlador Controlador { get; set; }
         private RepositorioContato RepositorioContato { get; set; } = new RepositorioContato();

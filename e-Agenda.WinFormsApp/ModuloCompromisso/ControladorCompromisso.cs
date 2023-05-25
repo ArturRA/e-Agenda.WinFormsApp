@@ -1,4 +1,5 @@
-﻿using e_Agenda.WinApp.Compartilhado;
+﻿using e_Agenda.WinApp;
+using e_Agenda.WinApp.Compartilhado;
 using e_Agenda.WinApp.ModuloContato;
 using static e_Agenda.WinFormsApp.ModuloCompromisso.DialogCompromissoFiltro;
 
@@ -32,7 +33,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
                 RepositorioCompromisso.Inserir(entidade);
 
-                CarregarContatos();
+                CarregarCompromissos();
             }
         }
 
@@ -59,7 +60,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             {
                 RepositorioCompromisso.Editar(dialog.Compromisso);
 
-                CarregarContatos();
+                CarregarCompromissos();
             }
         }
 
@@ -86,7 +87,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             {
                 RepositorioCompromisso.Excluir(entidade);
 
-                CarregarContatos();
+                CarregarCompromissos();
             }
         }
 
@@ -98,18 +99,37 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                TipoDoFiltro TipoFiltro = dialog.TipoDeFiltroSelecionado();
+                TipoDoFiltro TipoFiltro = dialog.TipoFiltro;
+                List<EntidadeCompromisso>? entidades = null;
 
-                List<EntidadeCompromisso> entidades = RepositorioCompromisso.SelecionarTodaALista();
+                switch (TipoFiltro)
+                {
+                    case TipoDoFiltro.Todos:
+                        entidades = RepositorioCompromisso.SelecionarTodaALista();
+                        break;
+                    case TipoDoFiltro.Passados:
+                        entidades = RepositorioCompromisso.SelecionarCompromissosPassados();
+                        break;
+                    case TipoDoFiltro.Futuros:
+                        entidades = RepositorioCompromisso.SelecionarCompromissosFuturos(dialog.DataInicial, dialog.DataFinal);
+                        break;
+                }
 
-                ListagemCompromissoControl.AtualizarRegistrosComFiltro(entidades, TipoFiltro, dialog.DataInicial.Date, dialog.DataFinal.Date);
+                CarregarCompromissos(entidades!);
+
+                TelaPrincipalForm.Instancia.AtualizarToolStrip($"Visualizando {entidades!.Count} compromissos");
             }
         }
 
-        private void CarregarContatos()
+        private void CarregarCompromissos()
         {
             List<EntidadeCompromisso> entidades = RepositorioCompromisso.SelecionarTodaALista();
 
+            ListagemCompromissoControl.AtualizarRegistros(entidades);
+        }
+
+        private void CarregarCompromissos(List<EntidadeCompromisso> entidades)
+        {
             ListagemCompromissoControl.AtualizarRegistros(entidades);
         }
 
@@ -117,7 +137,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         {
             ListagemCompromissoControl ??= new ListagemCompromissoControl();
 
-            CarregarContatos();
+            CarregarCompromissos();
 
             return ListagemCompromissoControl;
         }

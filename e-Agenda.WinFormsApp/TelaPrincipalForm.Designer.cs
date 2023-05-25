@@ -149,7 +149,6 @@ namespace e_Agenda.WinApp
             btnInserir.Name="btnInserir";
             btnInserir.Padding=new Padding(7);
             btnInserir.Size=new Size(42, 42);
-            btnInserir.Text="Inserir";
             btnInserir.Click+=btnInserir_Click;
             // 
             // btnEditar
@@ -162,7 +161,6 @@ namespace e_Agenda.WinApp
             btnEditar.Name="btnEditar";
             btnEditar.Padding=new Padding(7);
             btnEditar.Size=new Size(42, 42);
-            btnEditar.Text="Editar";
             btnEditar.Click+=btnEditar_Click;
             // 
             // btnExcluir
@@ -175,7 +173,6 @@ namespace e_Agenda.WinApp
             btnExcluir.Name="btnExcluir";
             btnExcluir.Padding=new Padding(7);
             btnExcluir.Size=new Size(42, 42);
-            btnExcluir.Text="Excluir";
             btnExcluir.Click+=btnExcluir_Click;
             // 
             // btnFiltrar
@@ -188,7 +185,6 @@ namespace e_Agenda.WinApp
             btnFiltrar.Name="btnFiltrar";
             btnFiltrar.Padding=new Padding(7);
             btnFiltrar.Size=new Size(42, 42);
-            btnFiltrar.Text="Excluir";
             btnFiltrar.Click+=btnFiltrar_Click;
             // 
             // toolStripSeparator1

@@ -22,8 +22,8 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
         private void rdbLocalizacaoChanged(object? sender, EventArgs e)
         {
-            RadioButton rdb = (RadioButton)sender;
-            TipoDoLocao = (TipoDaLocalizacao)Convert.ToInt32(rdb.Tag);
+            RadioButton? rdb = sender as RadioButton;
+            TipoDoLocao = (TipoDaLocalizacao)Convert.ToInt32(rdb!.Tag);
         }
 
         public EntidadeCompromisso Compromisso
