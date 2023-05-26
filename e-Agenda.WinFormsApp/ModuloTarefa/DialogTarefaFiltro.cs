@@ -17,7 +17,6 @@
             rdbTodos.CheckedChanged += rdbFiltroChanged;
             rdbPendentes.CheckedChanged += rdbFiltroChanged;
             rdbConcluidas.CheckedChanged += rdbFiltroChanged;
-            rdbTodos.Checked = true;
         }
 
         private void rdbFiltroChanged(object? sender, EventArgs e)

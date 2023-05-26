@@ -38,20 +38,20 @@
             // btnFiltrar
             // 
             btnFiltrar.DialogResult=DialogResult.OK;
-            btnFiltrar.Location=new Point(31, 87);
+            btnFiltrar.Location=new Point(27, 87);
             btnFiltrar.Name="btnFiltrar";
             btnFiltrar.Size=new Size(75, 50);
-            btnFiltrar.TabIndex=0;
+            btnFiltrar.TabIndex=6;
             btnFiltrar.Text="Filtrar";
             btnFiltrar.UseVisualStyleBackColor=true;
             // 
             // btnCancelar
             // 
             btnCancelar.DialogResult=DialogResult.Cancel;
-            btnCancelar.Location=new Point(112, 87);
+            btnCancelar.Location=new Point(108, 87);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(75, 50);
-            btnCancelar.TabIndex=1;
+            btnCancelar.TabIndex=7;
             btnCancelar.Text="Cancelar";
             btnCancelar.UseVisualStyleBackColor=true;
             // 
@@ -61,7 +61,8 @@
             rdbTodos.Location=new Point(12, 12);
             rdbTodos.Name="rdbTodos";
             rdbTodos.Size=new Size(160, 19);
-            rdbTodos.TabIndex=0;
+            rdbTodos.TabIndex=1;
+            rdbTodos.TabStop=true;
             rdbTodos.Tag="0";
             rdbTodos.Text="Visualizar Todas as Tarefas";
             rdbTodos.UseVisualStyleBackColor=true;
@@ -72,7 +73,8 @@
             rdbPendentes.Location=new Point(12, 37);
             rdbPendentes.Name="rdbPendentes";
             rdbPendentes.Size=new Size(171, 19);
-            rdbPendentes.TabIndex=1;
+            rdbPendentes.TabIndex=2;
+            rdbPendentes.TabStop=true;
             rdbPendentes.Tag="1";
             rdbPendentes.Text="Visualizar Tarefas Pendentes";
             rdbPendentes.UseVisualStyleBackColor=true;
@@ -83,7 +85,8 @@
             rdbConcluidas.Location=new Point(12, 62);
             rdbConcluidas.Name="rdbConcluidas";
             rdbConcluidas.Size=new Size(175, 19);
-            rdbConcluidas.TabIndex=2;
+            rdbConcluidas.TabIndex=3;
+            rdbConcluidas.TabStop=true;
             rdbConcluidas.Tag="2";
             rdbConcluidas.Text="Visualizar Tarefas Concluídas";
             rdbConcluidas.UseVisualStyleBackColor=true;
@@ -92,7 +95,9 @@
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(206, 163);
+            AutoSize=true;
+            AutoSizeMode=AutoSizeMode.GrowAndShrink;
+            ClientSize=new Size(205, 156);
             Controls.Add(rdbConcluidas);
             Controls.Add(rdbTodos);
             Controls.Add(rdbPendentes);
