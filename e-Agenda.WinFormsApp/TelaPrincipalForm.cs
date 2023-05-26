@@ -35,29 +35,29 @@ namespace e_Agenda.WinFormsApp
 
             RepositorioCompromisso.Inserir(new EntidadeCompromisso("Entrevista - Ricardo",
                                            new DateTime(2023, 5, 21),
-                                           new DateTime(0, 0, 0, 12, 0, 0),
-                                           new DateTime(0, 0, 0, 12, 30, 0),
+                                           new DateTime(2023, 5, 21, 12, 0, 0),
+                                           new DateTime(2023, 5, 21, 12, 30, 0),
                                            true,
                                            ricardo,
                                            TipoDaLocalizacao.Presencial,
                                            "Lages na uniplac"));
             RepositorioCompromisso.Inserir(new EntidadeCompromisso("Entrevista - bruno",
                                            new DateTime(2023, 5, 21),
-                                           new DateTime(0, 0, 0, 12, 30, 0),
-                                           new DateTime(0, 0, 0, 13, 0, 0),
+                                           new DateTime(2023, 5, 21, 12, 30, 0),
+                                           new DateTime(2023, 5, 21, 13, 0, 0),
                                            true,
-                                           ricardo,
+                                           bruno,
                                            TipoDaLocalizacao.Presencial,
                                            "Lages na uniplac"));
             RepositorioCompromisso.Inserir(new EntidadeCompromisso("Entrevista - maria",
                                            new DateTime(2023, 5, 21),
-                                           new DateTime(0, 0, 0, 13, 0, 0),
-                                           new DateTime(0, 0, 0, 13, 30, 0),
+                                           new DateTime(2023, 5, 21, 13, 0, 0),
+                                           new DateTime(2023, 5, 21, 13, 30, 0),
                                            true,
-                                           ricardo,
+                                           maria,
                                            TipoDaLocalizacao.Presencial,
                                            "Lages na uniplac"));
-            
+
 
             EntidadeTarefa t1 = new EntidadeTarefa("Preparar Apresentação 1", PrioridadeTarefaEnum.Alta, DateTime.Now);
             t1.AdicionarItem(new ItemTarefa("a"));
