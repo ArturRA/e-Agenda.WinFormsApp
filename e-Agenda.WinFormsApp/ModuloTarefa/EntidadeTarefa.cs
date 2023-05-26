@@ -2,6 +2,13 @@
 
 namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
+    public enum PrioridadeTarefaEnum
+    {
+        Baixa,
+        Normal,
+        Alta
+    }
+
     public class ItemTarefa
     {
         public string Titulo { get; set; }
@@ -28,31 +35,20 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
         }
     }
 
-
-
-
     public class EntidadeTarefa : Entidade<EntidadeTarefa>
     {
-        public enum PrioridadeTarefaEnum
-        {
-            Baixa,
-            Normal,
-            Alta
-        }
-
         public string Titulo { get; set; }
         public PrioridadeTarefaEnum Prioridade { get; set; }
         public DateTime DataCriacao { get; set; }
-        public List<ItemTarefa> Items { get; set; }
+        public List<ItemTarefa> Itens { get; set; }
         public decimal PercentualConcluido { get; set; }
 
-        public EntidadeTarefa(string titulo, PrioridadeTarefaEnum prioridade, DateTime dataCriacao, List<ItemTarefa> items, decimal percentualConcluido)
+        public EntidadeTarefa(string titulo, PrioridadeTarefaEnum prioridade, DateTime dataCriacao)
         {
             Titulo=titulo;
             Prioridade=prioridade;
             DataCriacao=dataCriacao;
-            Items=items;
-            PercentualConcluido=percentualConcluido;
+            Itens = new List<ItemTarefa>();
         }
 
         public override string ToString()
@@ -62,39 +58,52 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
         public void AdicionarItem(ItemTarefa item)
         {
-            Items.Add(item);
+            Itens.Add(item);
         }
 
         public void ConcluirItem(ItemTarefa item)
         {
-            ItemTarefa? itemSelecionado = Items.FirstOrDefault(x => x.Equals(item));
+            //ItemTarefa? itemSelecionado = Itens.FirstOrDefault(x => x.Equals(item));
 
-            itemSelecionado!.Concluir();
+            //itemSelecionado!.Concluir();
+
+            item!.Concluir();
 
             CalcularPercentualConcluido();
         }
 
-        public void DesmarcarItem(ItemTarefa item)
+        public void RecomecarProgresso(ItemTarefa item)
         {
-            ItemTarefa? itemSelecionado = Items.FirstOrDefault(x => x.Equals(item));
+            //ItemTarefa? itemSelecionado = Itens.FirstOrDefault(x => x.Equals(item));
 
-            itemSelecionado!.RecomecarProgresso();
+            //itemSelecionado!.RecomecarProgresso();
+
+            item!.RecomecarProgresso();
 
             CalcularPercentualConcluido();
         }
 
         private void CalcularPercentualConcluido()
         {
-            decimal qtdItens = Items.Count;
+            decimal qtdItens = Itens.Count;
 
             if (qtdItens == 0)
                 return;
 
-            decimal qtdConcluidos = Items.Count(x => x.Concluido == true);
+            decimal qtdConcluidos = Itens.Count(x => x.Concluido == true);
 
             decimal resultado = (qtdConcluidos / qtdItens) * 100;
 
             PercentualConcluido = Math.Round(resultado, 2);
+        }
+
+        public override List<string> Validar()
+        {
+            List<string> erros = new List<string>();
+            if (string.IsNullOrWhiteSpace(Titulo))
+                erros.Add("Digite um Titulo valido");
+
+            return erros;
         }
     }
 }

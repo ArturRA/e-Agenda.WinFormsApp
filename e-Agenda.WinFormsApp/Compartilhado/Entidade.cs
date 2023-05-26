@@ -13,5 +13,7 @@
                     p.SetValue(this, p.GetValue(entidadeComValoresAtualizados));
             });
         }
+
+        public abstract List<string> Validar();
     }
 }

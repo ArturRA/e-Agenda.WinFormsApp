@@ -45,14 +45,14 @@ namespace e_Agenda.WinFormsApp
             btnInserir=new ToolStripButton();
             btnEditar=new ToolStripButton();
             btnExcluir=new ToolStripButton();
+            toolStripSeparator2=new ToolStripSeparator();
             btnFiltrar=new ToolStripButton();
             toolStripSeparator1=new ToolStripSeparator();
-            labelTipoCadastro=new ToolStripLabel();
-            panelRegistros=new Panel();
-            toolStripSeparator2=new ToolStripSeparator();
-            toolStripSeparator3=new ToolStripSeparator();
             btnAdicionarItens=new ToolStripButton();
             btnConcluirItens=new ToolStripButton();
+            toolStripSeparator3=new ToolStripSeparator();
+            labelTipoCadastro=new ToolStripLabel();
+            panelRegistros=new Panel();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -179,6 +179,11 @@ namespace e_Agenda.WinFormsApp
             btnExcluir.Size=new Size(42, 42);
             btnExcluir.Click+=btnExcluir_Click;
             // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name="toolStripSeparator2";
+            toolStripSeparator2.Size=new Size(6, 45);
+            // 
             // btnFiltrar
             // 
             btnFiltrar.DisplayStyle=ToolStripItemDisplayStyle.Image;
@@ -196,6 +201,35 @@ namespace e_Agenda.WinFormsApp
             toolStripSeparator1.Name="toolStripSeparator1";
             toolStripSeparator1.Size=new Size(6, 45);
             // 
+            // btnAdicionarItens
+            // 
+            btnAdicionarItens.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnAdicionarItens.Enabled=false;
+            btnAdicionarItens.Image=Resources.library_add_FILL0_wght400_GRAD0_opsz24;
+            btnAdicionarItens.ImageScaling=ToolStripItemImageScaling.None;
+            btnAdicionarItens.ImageTransparentColor=Color.Magenta;
+            btnAdicionarItens.Name="btnAdicionarItens";
+            btnAdicionarItens.Padding=new Padding(7);
+            btnAdicionarItens.Size=new Size(42, 42);
+            btnAdicionarItens.Click+=btnAdicionarItens_Click;
+            // 
+            // btnConcluirItens
+            // 
+            btnConcluirItens.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnConcluirItens.Enabled=false;
+            btnConcluirItens.Image=Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            btnConcluirItens.ImageScaling=ToolStripItemImageScaling.None;
+            btnConcluirItens.ImageTransparentColor=Color.Magenta;
+            btnConcluirItens.Name="btnConcluirItens";
+            btnConcluirItens.Padding=new Padding(7);
+            btnConcluirItens.Size=new Size(42, 42);
+            btnConcluirItens.Click+=btnConcluirItens_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name="toolStripSeparator3";
+            toolStripSeparator3.Size=new Size(6, 45);
+            // 
             // labelTipoCadastro
             // 
             labelTipoCadastro.Name="labelTipoCadastro";
@@ -210,38 +244,6 @@ namespace e_Agenda.WinFormsApp
             panelRegistros.Name="panelRegistros";
             panelRegistros.Size=new Size(800, 359);
             panelRegistros.TabIndex=3;
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name="toolStripSeparator2";
-            toolStripSeparator2.Size=new Size(6, 45);
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name="toolStripSeparator3";
-            toolStripSeparator3.Size=new Size(6, 45);
-            // 
-            // btnAdicionarItens
-            // 
-            btnAdicionarItens.DisplayStyle=ToolStripItemDisplayStyle.Image;
-            btnAdicionarItens.Enabled=false;
-            btnAdicionarItens.Image=Resources.library_add_FILL0_wght400_GRAD0_opsz24;
-            btnAdicionarItens.ImageScaling=ToolStripItemImageScaling.None;
-            btnAdicionarItens.ImageTransparentColor=Color.Magenta;
-            btnAdicionarItens.Name="btnAdicionarItens";
-            btnAdicionarItens.Padding=new Padding(7);
-            btnAdicionarItens.Size=new Size(42, 42);
-            // 
-            // btnConcluirItens
-            // 
-            btnConcluirItens.DisplayStyle=ToolStripItemDisplayStyle.Image;
-            btnConcluirItens.Enabled=false;
-            btnConcluirItens.Image=Resources.check_box_FILL0_wght400_GRAD0_opsz24;
-            btnConcluirItens.ImageScaling=ToolStripItemImageScaling.None;
-            btnConcluirItens.ImageTransparentColor=Color.Magenta;
-            btnConcluirItens.Name="btnConcluirItens";
-            btnConcluirItens.Padding=new Padding(7);
-            btnConcluirItens.Size=new Size(42, 42);
             // 
             // TelaPrincipalForm
             // 

@@ -16,16 +16,15 @@
         public DialogCompromissoFiltro()
         {
             InitializeComponent();
-            rdbTodos.CheckedChanged += rdbLocalizacaoChanged;
-            rdbPassados.CheckedChanged += rdbLocalizacaoChanged;
-            rdbFuturos.CheckedChanged += rdbLocalizacaoChanged;
+            rdbTodos.CheckedChanged += rdbFiltroChanged;
+            rdbPassados.CheckedChanged += rdbFiltroChanged;
+            rdbFuturos.CheckedChanged += rdbFiltroChanged;
         }
 
-        private void rdbLocalizacaoChanged(object? sender, EventArgs e)
+        private void rdbFiltroChanged(object? sender, EventArgs e)
         {
             RadioButton? rdb = sender as RadioButton;
             TipoFiltro = (TipoDoFiltro)Convert.ToInt32(rdb!.Tag);
         }
-
     }
 }

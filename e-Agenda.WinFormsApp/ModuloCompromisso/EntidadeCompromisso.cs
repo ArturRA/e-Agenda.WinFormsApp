@@ -3,13 +3,15 @@ using e_Agenda.WinFormsApp.ModuloContato;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
+    public enum TipoDaLocalizacao
+    {
+        Invalido = -1,
+        Presencial = 0,
+        Remoto = 1
+    }
     public class EntidadeCompromisso : Entidade<EntidadeCompromisso>
     {
-        public enum TipoDaLocalizacao{
-            Invalido = -1,
-            Presencial = 0,
-            Remoto = 1
-        }
+        
         public string Assunto { get; set; }
         public DateTime DataCompromisso { get; set; }
         public DateTime HorarioInicio { get; set; }
@@ -39,7 +41,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
                    $"Horario final: {HorarioFim:HH:mm}";
         }
 
-        public List<string> Validar()
+        public override List<string> Validar()
         {
             List<string> erros = new List<string>();
             if (string.IsNullOrWhiteSpace(Assunto))

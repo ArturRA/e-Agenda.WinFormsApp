@@ -63,7 +63,7 @@
             // rdbPassados
             // 
             rdbPassados.AutoSize=true;
-            rdbPassados.Location=new Point(10, 37);
+            rdbPassados.Location=new Point(12, 37);
             rdbPassados.Name="rdbPassados";
             rdbPassados.Size=new Size(257, 19);
             rdbPassados.TabIndex=2;
@@ -90,7 +90,7 @@
             panelLocalizacao.Controls.Add(dtpDataInicial);
             panelLocalizacao.Controls.Add(dtpDataFinal);
             panelLocalizacao.Controls.Add(label5);
-            panelLocalizacao.Location=new Point(12, 127);
+            panelLocalizacao.Location=new Point(12, 112);
             panelLocalizacao.Name="panelLocalizacao";
             panelLocalizacao.Size=new Size(361, 62);
             panelLocalizacao.TabIndex=20;
@@ -116,7 +116,7 @@
             // btnFiltrar
             // 
             btnFiltrar.DialogResult=DialogResult.OK;
-            btnFiltrar.Location=new Point(217, 195);
+            btnFiltrar.Location=new Point(217, 180);
             btnFiltrar.Name="btnFiltrar";
             btnFiltrar.Size=new Size(75, 41);
             btnFiltrar.TabIndex=21;
@@ -126,7 +126,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult=DialogResult.Cancel;
-            btnCancelar.Location=new Point(298, 195);
+            btnCancelar.Location=new Point(298, 180);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(75, 41);
             btnCancelar.TabIndex=22;
@@ -136,7 +136,7 @@
             // rdbFuturos
             // 
             rdbFuturos.AutoSize=true;
-            rdbFuturos.Location=new Point(10, 62);
+            rdbFuturos.Location=new Point(12, 62);
             rdbFuturos.Name="rdbFuturos";
             rdbFuturos.Size=new Size(247, 19);
             rdbFuturos.TabIndex=3;
@@ -148,7 +148,7 @@
             // label1
             // 
             label1.AutoSize=true;
-            label1.Location=new Point(12, 109);
+            label1.Location=new Point(12, 94);
             label1.Name="label1";
             label1.Size=new Size(184, 15);
             label1.TabIndex=25;
@@ -158,11 +158,11 @@
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(383, 248);
-            Controls.Add(label1);
+            ClientSize=new Size(389, 238);
             Controls.Add(rdbFuturos);
-            Controls.Add(rdbPassados);
             Controls.Add(rdbTodos);
+            Controls.Add(rdbPassados);
+            Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnFiltrar);
             Controls.Add(panelLocalizacao);

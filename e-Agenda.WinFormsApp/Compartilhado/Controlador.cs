@@ -24,7 +24,7 @@
         public virtual void Filtrar()
         {
         }
-        public virtual void Adicionar()
+        public virtual void AdicionarItens()
         {
         }
         public virtual void ConcluirItens()

@@ -2,7 +2,7 @@
 
 namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
-    internal class RepositorioTarefa : Repositorio<EntidadeTarefa>
+    public class RepositorioTarefa : Repositorio<EntidadeTarefa>
     {
         public List<EntidadeTarefa>? SelecionarConcluidas()
         {

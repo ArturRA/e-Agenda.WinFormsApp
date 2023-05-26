@@ -103,7 +103,6 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             if (resultado.Count > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarToolStrip(resultado[0]);
-                DialogResult = DialogResult.None;
             }
             else
             {

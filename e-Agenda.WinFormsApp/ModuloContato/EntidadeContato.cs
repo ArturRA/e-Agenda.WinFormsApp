@@ -25,7 +25,7 @@ namespace e_Agenda.WinFormsApp.ModuloContato
             return $"Id: {Id}, Nome: {Nome}, Telefone: {Telefone}, Email: {Email}, Cargo: {Cargo}, Empresa: {Empresa}";
         }
 
-        public List<string> Validar()
+        public override List<string> Validar()
         {
             List<string> erros = new List<string>();
             if (string.IsNullOrWhiteSpace(Nome))
