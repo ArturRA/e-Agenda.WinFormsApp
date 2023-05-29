@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinFormsApp.ModuloTarefa
+﻿using e_Agenda.WinFormsApp.Compartilhado;
+
+namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
     public partial class DialogTarefaFiltro : Form
     {
@@ -14,6 +16,9 @@
         public DialogTarefaFiltro()
         {
             InitializeComponent();
+
+            this.ConfigurarDialog();
+
             rdbTodos.CheckedChanged += rdbFiltroChanged;
             rdbPendentes.CheckedChanged += rdbFiltroChanged;
             rdbConcluidas.CheckedChanged += rdbFiltroChanged;

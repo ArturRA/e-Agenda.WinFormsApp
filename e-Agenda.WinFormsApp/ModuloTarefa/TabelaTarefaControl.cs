@@ -4,41 +4,25 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
     public partial class TabelaTarefaControl : UserControl
     {
-        public TabelaTarefaControl(List<EntidadeTarefa> listaDetarefas)
+        public TabelaTarefaControl(List<EntidadeTarefa> listaDeTarefas)
         {
             InitializeComponent();
 
-            AtualizarRegistros(listaDetarefas);
+            AtualizarRegistros(listaDeTarefas);
 
             grid.ConfigurarGridZebrado();
 
             grid.ConfigurarGridSomenteLeitura();
         }
 
-        public void AtualizarRegistros(List<EntidadeTarefa> listaDetarefas)
+        public void AtualizarRegistros(List<EntidadeTarefa> listaDeTarefas)
         {
-            grid.DataSource = listaDetarefas;
+            grid.DataSource = listaDeTarefas;
         }
 
         public EntidadeTarefa ObterTarefaSelecionada()
         {
             return (EntidadeTarefa)grid.SelectedRows[0].DataBoundItem;
         }
-        
-        //private void ConfigurarColunas()
-        //{
-        //    dataTable = new DataTable();
-        //    dataTable.Columns.Add("Id");
-        //    dataTable.Columns.Add("Título");
-        //    dataTable.Columns.Add("Prioridade");
-        //    dataTable.Columns.Add("% Concluído");
-        //}
-        
-        //public void AtualizarRegistros(List<EntidadeTarefa> tarefas)
-        //{
-        //    dataTable.Clear();
-
-        //    tarefas.ForEach(tarefa => dataTable.Rows.Add(tarefa.Id, tarefa.Titulo, tarefa.Prioridade, tarefa.PercentualConcluido));
-        //}
     }
 }

@@ -7,15 +7,15 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         //Selecionar Compromissos Passados
         public List<EntidadeCompromisso> SelecionarCompromissosPassados()
         {
-            return Registros.Where(x => x.DataCompromisso.Date < DateTime.Now).ToList();
+            return Registros.Where(x => x.Data.Date < DateTime.Now).ToList();
         }
 
         //Selecionar Compromissos Futuros ( dataInicio, dataFinal)
         public List<EntidadeCompromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal)
         {
             return Registros
-                .Where(x => x.DataCompromisso > dataInicio)
-                .Where(x => x.DataCompromisso < dataFinal)
+                .Where(x => x.Data > dataInicio)
+                .Where(x => x.Data < dataFinal)
                 .ToList();
         }
     }

@@ -13,32 +13,25 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
     {
         
         public string Assunto { get; set; }
-        public DateTime DataCompromisso { get; set; }
-        public DateTime HorarioInicio { get; set; }
-        public DateTime HorarioFim { get; set;}
-        public bool TemContatoCompromisso { get; set; }
-        public EntidadeContato? ContatoDoCompromisso { get; set; }
+        public DateTime Data { get; set; }
+        public TimeSpan HorarioInicio { get; set; }
+        public TimeSpan HorarioFim { get; set;}
+        public bool TemContato { get; set; }
+        public EntidadeContato? Contato { get; set; }
         public TipoDaLocalizacao TipoDoLocal { get; set; }
-        public string LocaoDoCompromisso { get; set; }
+        public string Locao { get; set; }
 
-        public EntidadeCompromisso(string assunto, DateTime dataCompromisso, DateTime horarioInicio, DateTime horarioFim, bool temContatoCompromisso,
-                                   EntidadeContato? contatoDoCompromisso, TipoDaLocalizacao tipoDoLocal, string locaoDoCompromisso)
+        public EntidadeCompromisso(string assunto, DateTime data, TimeSpan horarioInicio, TimeSpan horarioFim, bool temContato,
+                                   EntidadeContato? contato, TipoDaLocalizacao tipoDoLocal, string locao)
         {
             Assunto=assunto;
-            DataCompromisso=dataCompromisso;
+            Data=data;
             HorarioInicio=horarioInicio;
             HorarioFim=horarioFim;
-            TemContatoCompromisso=temContatoCompromisso;
-            ContatoDoCompromisso=contatoDoCompromisso;
+            TemContato=temContato;
+            Contato=contato;
             TipoDoLocal=tipoDoLocal;
-            LocaoDoCompromisso=locaoDoCompromisso;
-        }
-
-        public override string ToString()
-        {
-            string nomeContato = ContatoDoCompromisso != null ? ContatoDoCompromisso.Nome : "";
-            return $"Assunto: {Assunto}, Contato: {nomeContato}, Data Compromisso: {DataCompromisso.Date}, Horario inínio: {HorarioInicio:HH:mm}, " +
-                   $"Horario final: {HorarioFim:HH:mm}";
+            Locao=locao;
         }
 
         public override List<string> Validar()
@@ -48,7 +41,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
                 erros.Add("Digite um Assunto valido");
             if (TipoDoLocal == TipoDaLocalizacao.Invalido)
                 erros.Add("Selecione um tipo de Localização");
-            if (string.IsNullOrWhiteSpace(LocaoDoCompromisso))
+            if (string.IsNullOrWhiteSpace(Locao))
                 erros.Add("Digite um Local do Compromisso valido");
 
             return erros;

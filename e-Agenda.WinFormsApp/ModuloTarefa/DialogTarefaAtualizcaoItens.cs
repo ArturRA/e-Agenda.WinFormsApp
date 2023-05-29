@@ -1,4 +1,4 @@
-﻿using e_Agenda.WinFormsApp.Compartilhado;
+using e_Agenda.WinFormsApp.Compartilhado;
 
 namespace e_Agenda.WinFormsApp.ModuloTarefa
 {

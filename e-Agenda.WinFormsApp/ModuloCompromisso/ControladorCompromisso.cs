@@ -8,7 +8,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
     {
         private RepositorioCompromisso RepositorioCompromisso { get; set; }
         private RepositorioContato RepositorioContato { get; set; }
-        private ListagemCompromissoControl ListagemCompromissoControl { get; set; }
+        private TabelaCompromissoControl TabelaCompromissoControl { get; set; }
         public override string TipoDoCadastro => "Compromisso";
         public override string ToolTipFiltrar => $"Filtrar {TipoDoCadastro} existente";
         public override bool ToolTipEnableFiltrar => true;
@@ -36,7 +36,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
         public override void Editar()
         {
-            EntidadeCompromisso entidade = ListagemCompromissoControl.ObterContatoSelecionado();
+            EntidadeCompromisso entidade = TabelaCompromissoControl.ObterCompromissoSelecionado();
 
             if (entidade == null)
             {
@@ -63,7 +63,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
         public override void Excluir()
         {
-            EntidadeCompromisso entidade = ListagemCompromissoControl.ObterContatoSelecionado();
+            EntidadeCompromisso entidade = TabelaCompromissoControl.ObterCompromissoSelecionado();
 
             if (entidade == null)
             {
@@ -122,21 +122,21 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         {
             List<EntidadeCompromisso> entidades = RepositorioCompromisso.SelecionarTodaALista();
 
-            ListagemCompromissoControl.AtualizarRegistros(entidades);
+            TabelaCompromissoControl.AtualizarRegistros(entidades);
         }
 
         private void CarregarCompromissos(List<EntidadeCompromisso> entidades)
         {
-            ListagemCompromissoControl.AtualizarRegistros(entidades);
+            TabelaCompromissoControl.AtualizarRegistros(entidades);
         }
 
         public override UserControl ObterListagem()
         {
-            ListagemCompromissoControl ??= new ListagemCompromissoControl();
+            TabelaCompromissoControl ??= new TabelaCompromissoControl(RepositorioCompromisso.SelecionarTodaALista());
 
             CarregarCompromissos();
 
-            return ListagemCompromissoControl;
+            return TabelaCompromissoControl;
         }
     }
 }

@@ -137,7 +137,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
             if (opcaoEscolhida == DialogResult.OK)
             {
                 List<ItemTarefa> listaDeItensAtualizados = telaCadastroItensTarefa.ObterItensCadastrados();
-                entidade.Itens = listaDeItensAtualizados;
+                listaDeItensAtualizados.ForEach(i => entidade.AdicionarItem(i));
                 CarregarTarefas();
             }
         }

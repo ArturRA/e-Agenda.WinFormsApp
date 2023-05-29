@@ -5,7 +5,7 @@ namespace e_Agenda.WinFormsApp.ModuloContato
     public class ControladorContato : Controlador
     {
         private RepositorioContato RepositorioContato { get; set; }
-        private ListagemContatoControl ListagemContatoControl { get; set; }
+        private TabelaContatoControl TabelaContatoControl { get; set; }
         public override string TipoDoCadastro => "Contato";
 
         public ControladorContato(RepositorioContato repositorioContato)
@@ -32,7 +32,7 @@ namespace e_Agenda.WinFormsApp.ModuloContato
 
         public override void Editar()
         {
-            EntidadeContato contato = ListagemContatoControl.ObterContatoSelecionado();
+            EntidadeContato contato = TabelaContatoControl.ObterContatoSelecionado();
 
             if (contato == null)
             {
@@ -59,7 +59,7 @@ namespace e_Agenda.WinFormsApp.ModuloContato
 
         public override void Excluir()
         {            
-            EntidadeContato entidade = ListagemContatoControl.ObterContatoSelecionado();
+            EntidadeContato entidade = TabelaContatoControl.ObterContatoSelecionado();
 
             if (entidade == null)
             {
@@ -88,16 +88,16 @@ namespace e_Agenda.WinFormsApp.ModuloContato
         {
             List<EntidadeContato> contatos = RepositorioContato.SelecionarTodaALista();
 
-            ListagemContatoControl.AtualizarRegistros(contatos);
+            TabelaContatoControl.AtualizarRegistros(contatos);
         }
 
         public override UserControl ObterListagem()
         {
-            ListagemContatoControl ??= new ListagemContatoControl();
+            TabelaContatoControl ??= new TabelaContatoControl(RepositorioContato.SelecionarTodaALista());
 
             CarregarContatos();
 
-            return ListagemContatoControl;
+            return TabelaContatoControl;
         }
     }
 }

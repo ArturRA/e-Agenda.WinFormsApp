@@ -1,5 +1,5 @@
-﻿using e_Agenda.WinFormsApp.ModuloContato;
-using static e_Agenda.WinFormsApp.ModuloCompromisso.EntidadeCompromisso;
+﻿using e_Agenda.WinFormsApp.Compartilhado;
+using e_Agenda.WinFormsApp.ModuloContato;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
@@ -11,6 +11,9 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         public DialogCompromisso(List<EntidadeContato> listaDeContatos)
         {
             InitializeComponent();
+
+            this.ConfigurarDialog();
+
             rdbPresencial.CheckedChanged += rdbLocalizacaoChanged;
             rdbRemoto.CheckedChanged += rdbLocalizacaoChanged;
 
@@ -32,13 +35,13 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
                 entidadeCompromisso = value;
                 txtId.Text = entidadeCompromisso.Id.ToString();
                 txtAssunto.Text = entidadeCompromisso.Assunto;
-                dtpData.Value = entidadeCompromisso.DataCompromisso.Date;
-                dtpHorarioInicio.Text = entidadeCompromisso.HorarioInicio.ToString("HH:mm");
-                dtpHorarioFim.Text = entidadeCompromisso.HorarioFim.ToString("HH:mm");
+                dtpData.Value = entidadeCompromisso.Data.Date;
+                dtpHorarioInicio.Value = DateTime.Now.Date.Add(entidadeCompromisso.HorarioInicio);
+                dtpHorarioFim.Value = DateTime.Now.Date.Add(entidadeCompromisso.HorarioFim);
 
-                checkBoxMarcarContato.Checked = entidadeCompromisso.TemContatoCompromisso;
+                checkBoxMarcarContato.Checked = entidadeCompromisso.TemContato;
                 if (checkBoxMarcarContato.Checked)
-                    cbContatos.SelectedItem = entidadeCompromisso.ContatoDoCompromisso;
+                    cbContatos.SelectedItem = entidadeCompromisso.Contato;
 
                 switch (entidadeCompromisso.TipoDoLocal)
                 {
@@ -49,7 +52,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
                         rdbRemoto.Checked = true;
                         break;
                 }
-                txtLocalizacao.Text = entidadeCompromisso.LocaoDoCompromisso;
+                txtLocalizacao.Text = entidadeCompromisso.Locao;
             }
             get
             {
@@ -61,8 +64,8 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         {
             string Assunto = txtAssunto.Text;
             DateTime DataCompromisso = dtpData.Value;
-            DateTime HorarioInicio = dtpHorarioInicio.Value;
-            DateTime HorarioFim = dtpHorarioFim.Value;
+            TimeSpan HorarioInicio = dtpHorarioInicio.Value.TimeOfDay;
+            TimeSpan HorarioFim = dtpHorarioFim.Value.TimeOfDay;
             EntidadeContato? ContatoDoCompromisso = null;
             if (checkBoxMarcarContato.Checked)
                 ContatoDoCompromisso = cbContatos.SelectedItem as EntidadeContato;
@@ -89,8 +92,8 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         {
             string Assunto = txtAssunto.Text;
             DateTime DataCompromisso = dtpData.Value;
-            DateTime HorarioInicio = dtpHorarioInicio.Value;
-            DateTime HorarioFim = dtpHorarioFim.Value;
+            TimeSpan HorarioInicio = dtpHorarioInicio.Value.TimeOfDay;
+            TimeSpan HorarioFim = dtpHorarioFim.Value.TimeOfDay;
             EntidadeContato? ContatoDoCompromisso = null;
             if (checkBoxMarcarContato.Checked)
                 ContatoDoCompromisso = cbContatos.SelectedItem as EntidadeContato;

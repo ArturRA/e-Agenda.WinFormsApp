@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
+using System.Collections.ObjectModel;
 
 namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
@@ -40,7 +41,14 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
         public string Titulo { get; set; }
         public PrioridadeTarefaEnum Prioridade { get; set; }
         public DateTime DataCriacao { get; set; }
-        public List<ItemTarefa> Itens { get; set; }
+        private List<ItemTarefa> itens { get; set; }
+        public ReadOnlyCollection<ItemTarefa> Itens
+        {
+            get
+            {
+                return itens.AsReadOnly();
+            }
+        }
         public decimal PercentualConcluido { get; set; }
 
         public EntidadeTarefa(string titulo, PrioridadeTarefaEnum prioridade, DateTime dataCriacao)
@@ -48,7 +56,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
             Titulo=titulo;
             Prioridade=prioridade;
             DataCriacao=dataCriacao;
-            Itens = new List<ItemTarefa>();
+            itens = new List<ItemTarefa>();
         }
 
         public override string ToString()
@@ -58,7 +66,8 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
         public void AdicionarItem(ItemTarefa item)
         {
-            Itens.Add(item);
+            if (!itens.Contains(item))
+                itens.Add(item);
         }
 
         public void ConcluirItem(ItemTarefa item)
@@ -85,12 +94,12 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
         private void CalcularPercentualConcluido()
         {
-            decimal qtdItens = Itens.Count;
+            decimal qtdItens = itens.Count;
 
             if (qtdItens == 0)
                 return;
 
-            decimal qtdConcluidos = Itens.Count(x => x.Concluido == true);
+            decimal qtdConcluidos = itens.Count(x => x.Concluido == true);
 
             decimal resultado = (qtdConcluidos / qtdItens) * 100;
 

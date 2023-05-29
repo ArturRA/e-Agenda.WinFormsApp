@@ -22,7 +22,7 @@ namespace e_Agenda.WinFormsApp.ModuloContato
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, Telefone: {Telefone}, Email: {Email}, Cargo: {Cargo}, Empresa: {Empresa}";
+            return Nome;
         }
 
         public override List<string> Validar()

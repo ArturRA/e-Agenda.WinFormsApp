@@ -1,6 +1,6 @@
-﻿namespace e_Agenda.WinFormsApp.ModuloContato
+﻿namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
-    partial class ListagemContatoControl
+    partial class TabelaCompromissoControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBoxEntidades=new ListBox();
+            grid=new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             SuspendLayout();
             // 
-            // listBoxEntidades
+            // grid
             // 
-            listBoxEntidades.Dock=DockStyle.Fill;
-            listBoxEntidades.FormattingEnabled=true;
-            listBoxEntidades.ItemHeight=15;
-            listBoxEntidades.Location=new Point(0, 0);
-            listBoxEntidades.Name="listBoxEntidades";
-            listBoxEntidades.Size=new Size(714, 427);
-            listBoxEntidades.TabIndex=0;
+            grid.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid.Dock=DockStyle.Fill;
+            grid.Location=new Point(0, 0);
+            grid.Name="grid";
+            grid.RowTemplate.Height=25;
+            grid.Size=new Size(448, 383);
+            grid.TabIndex=0;
             // 
-            // ListagemContatoControl
+            // TabelaCompromissoControl
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            Controls.Add(listBoxEntidades);
-            Name="ListagemContatoControl";
-            Size=new Size(714, 427);
+            Controls.Add(grid);
+            Name="TabelaCompromissoControl";
+            Size=new Size(448, 383);
+            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listBoxEntidades;
+        private DataGridView grid;
     }
 }

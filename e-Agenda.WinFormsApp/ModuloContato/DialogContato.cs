@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinFormsApp.ModuloContato
+﻿using e_Agenda.WinFormsApp.Compartilhado;
+
+namespace e_Agenda.WinFormsApp.ModuloContato
 {
     public partial class DialogContato : Form
     {
@@ -6,6 +8,8 @@
         public DialogContato()
         {
             InitializeComponent();
+
+            this.ConfigurarDialog();
         }
 
         public EntidadeContato Contato
