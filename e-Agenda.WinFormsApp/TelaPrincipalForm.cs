@@ -2,6 +2,7 @@ using e_Agenda.WinFormsApp.Compartilhado;
 using e_Agenda.WinFormsApp.ModuloContato;
 using e_Agenda.WinFormsApp.ModuloTarefa;
 using e_Agenda.WinFormsApp.ModuloCompromisso;
+using e_Agenda.WinFormsApp.ModuloCategoriaEDespesa;
 
 namespace e_Agenda.WinFormsApp
 {
@@ -10,8 +11,10 @@ namespace e_Agenda.WinFormsApp
         public static TelaPrincipalForm Instancia { get; set; }
 
         private Controlador Controlador { get; set; }
+        private RepositorioCategoria RepositorioCategoria { get; set; } = new RepositorioCategoria();
         private RepositorioContato RepositorioContato { get; set; } = new RepositorioContato();
         private RepositorioCompromisso RepositorioCompromisso { get; set; } = new RepositorioCompromisso();
+        private RepositorioDespesa RepositorioDespesa { get; set; } = new RepositorioDespesa();
         private RepositorioTarefa RepositorioTarefa { get; set; } = new RepositorioTarefa();
 
 
@@ -102,7 +105,12 @@ namespace e_Agenda.WinFormsApp
         {
             statusLabelTelaPrincipal.Text = text;
         }
+        private void categoriasMenuItem_Click(object sender, EventArgs e)
+        {
+            Controlador = new ControladorCategoria(RepositorioCategoria);
 
+            ConfigurarTelaPrincipal(Controlador);
+        }
         private void compromissosMenuItem_Click(object sender, EventArgs e)
         {
             Controlador = new ControladorCompromisso(RepositorioCompromisso, RepositorioContato);
@@ -115,7 +123,12 @@ namespace e_Agenda.WinFormsApp
 
             ConfigurarTelaPrincipal(Controlador);
         }
+        private void despesasMenuItem_Click(object sender, EventArgs e)
+        {
+            Controlador = new ControladorDespesa(RepositorioDespesa, RepositorioCategoria);
 
+            ConfigurarTelaPrincipal(Controlador);
+        }
         private void tarefasMenuItem_Click(object sender, EventArgs e)
         {
             Controlador = new ControladorTarefa(RepositorioTarefa);
