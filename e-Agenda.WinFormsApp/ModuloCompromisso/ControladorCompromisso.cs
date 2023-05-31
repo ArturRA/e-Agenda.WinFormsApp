@@ -30,13 +30,13 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
                 RepositorioCompromisso.Inserir(entidade);
 
-                CarregarCompromissos();
+                CarregarEntidades();
             }
         }
 
         public override void Editar()
         {
-            EntidadeCompromisso entidade = TabelaCompromissoControl.ObterCompromissoSelecionado();
+            EntidadeCompromisso? entidade = TabelaCompromissoControl.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -57,13 +57,13 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             {
                 RepositorioCompromisso.Editar(dialog.Compromisso);
 
-                CarregarCompromissos();
+                CarregarEntidades();
             }
         }
 
         public override void Excluir()
         {
-            EntidadeCompromisso entidade = TabelaCompromissoControl.ObterCompromissoSelecionado();
+            EntidadeCompromisso? entidade = TabelaCompromissoControl.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -84,7 +84,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             {
                 RepositorioCompromisso.Excluir(entidade);
 
-                CarregarCompromissos();
+                CarregarEntidades();
             }
         }
 
@@ -118,7 +118,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
             }
         }
 
-        private void CarregarCompromissos()
+        private void CarregarEntidades()
         {
             List<EntidadeCompromisso> entidades = RepositorioCompromisso.SelecionarTodaALista();
 
@@ -134,7 +134,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         {
             TabelaCompromissoControl ??= new TabelaCompromissoControl(RepositorioCompromisso.SelecionarTodaALista());
 
-            CarregarCompromissos();
+            CarregarEntidades();
 
             return TabelaCompromissoControl;
         }

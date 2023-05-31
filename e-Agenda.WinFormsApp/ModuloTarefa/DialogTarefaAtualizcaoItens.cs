@@ -16,18 +16,16 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
         private void ConfigurarTela(EntidadeTarefa tarefa)
         {
             txtId.Text = tarefa.Id.ToString();
-
             txtTitulo.Text = tarefa.Titulo;
 
-            int i = 0;
-            foreach (ItemTarefa item in tarefa.Itens)
+            listItensTarefa.DataSource = tarefa.Itens;
+            listItensTarefa.DisplayMember = "Titulo";
+            listItensTarefa.ValueMember = "Concluido";
+
+            for (int i = 0; i < listItensTarefa.Items.Count; i++)
             {
-                listItensTarefa.Items.Add(item);
-
-                if (item.Concluido)
-                    listItensTarefa.SetItemChecked(i, true);
-
-                i++;
+                ItemTarefa obj = (ItemTarefa)listItensTarefa.Items[i];
+                listItensTarefa.SetItemChecked(i, obj.Concluido);
             }
         }
 

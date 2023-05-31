@@ -6,7 +6,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
     public class ControladorTarefa : Controlador
     {
         private RepositorioTarefa RepositorioTarefa { get; set; }
-        private TabelaTarefaControl TabelaTarefas { get; set; }
+        private TabelaTarefaControl TabelaTarefa { get; set; }
         public override string TipoDoCadastro => "Tarefa";
         public override string ToolTipFiltrar => $"Filtrar {TipoDoCadastro} existente";
         public override string ToolTipAdicionarItens => $"Adicionar Itens a {TipoDoCadastro}";
@@ -31,13 +31,13 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
                 RepositorioTarefa.Inserir(entidade);
 
-                CarregarTarefas();
+                CarregarEntidades();
             }
         }
 
         public override void Editar()
         {
-            EntidadeTarefa entidade = TabelaTarefas.ObterTarefaSelecionada();
+            EntidadeTarefa? entidade = TabelaTarefa.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -58,13 +58,13 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
             {
                 RepositorioTarefa.Editar(dialog.Tarefa);
 
-                CarregarTarefas();
+                CarregarEntidades();
             }
         }
 
         public override void Excluir()
         {
-            EntidadeTarefa entidade = TabelaTarefas.ObterTarefaSelecionada();
+            EntidadeTarefa? entidade = TabelaTarefa.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -85,7 +85,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
             {
                 RepositorioTarefa.Excluir(entidade);
 
-                CarregarTarefas();
+                CarregarEntidades();
             }
         }
 
@@ -113,7 +113,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
                         break;
                 }
 
-                CarregarTarefas(entidades!);
+                CarregarEntidades(entidades!);
 
                 TelaPrincipalForm.Instancia.AtualizarToolStrip($"Visualizando {entidades!.Count} compromissos");
             }
@@ -121,7 +121,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
         public override void AdicionarItens()
         {
-            EntidadeTarefa entidade = TabelaTarefas.ObterTarefaSelecionada();
+            EntidadeTarefa? entidade = TabelaTarefa.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -138,13 +138,13 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
             {
                 List<ItemTarefa> listaDeItensAtualizados = telaCadastroItensTarefa.ObterItensCadastrados();
                 listaDeItensAtualizados.ForEach(i => entidade.AdicionarItem(i));
-                CarregarTarefas();
+                CarregarEntidades();
             }
         }
 
         public override void ConcluirItens()
         {
-            EntidadeTarefa entidade = TabelaTarefas.ObterTarefaSelecionada();
+            EntidadeTarefa? entidade = TabelaTarefa.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -164,29 +164,29 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
                 List<ItemTarefa> itensPendentes = telaAtualizacaoItensTarefa.ObterItensPendentes();
                 itensPendentes.ForEach(i => entidade.RecomecarProgresso(i));
 
-                CarregarTarefas();
+                CarregarEntidades();
             }
         }
 
-        private void CarregarTarefas()
+        private void CarregarEntidades()
         {
             List<EntidadeTarefa> entidades = RepositorioTarefa.SelecionarTodosOrdenadosPorPrioridade();
 
-            TabelaTarefas.AtualizarRegistros(entidades);
+            TabelaTarefa.AtualizarRegistros(entidades);
         }
 
-        private void CarregarTarefas(List<EntidadeTarefa> entidades)
+        private void CarregarEntidades(List<EntidadeTarefa> entidades)
         {
-            TabelaTarefas.AtualizarRegistros(entidades);
+            TabelaTarefa.AtualizarRegistros(entidades);
         }
 
         public override UserControl ObterListagem()
         {
-            TabelaTarefas ??= new TabelaTarefaControl(RepositorioTarefa.SelecionarTodaALista());
+            TabelaTarefa ??= new TabelaTarefaControl(RepositorioTarefa.SelecionarTodaALista());
 
-            CarregarTarefas();
+            CarregarEntidades();
 
-            return TabelaTarefas;
+            return TabelaTarefa;
         }
     }
 }

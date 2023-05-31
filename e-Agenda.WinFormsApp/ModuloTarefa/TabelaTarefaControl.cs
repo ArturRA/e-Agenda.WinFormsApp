@@ -1,28 +1,36 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
+using System.ComponentModel;
 
 namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
     public partial class TabelaTarefaControl : UserControl
     {
-        public TabelaTarefaControl(List<EntidadeTarefa> listaDeTarefas)
+        public TabelaTarefaControl(List<EntidadeTarefa> listaDeEntidades)
         {
             InitializeComponent();
 
-            AtualizarRegistros(listaDeTarefas);
+            AtualizarRegistros(listaDeEntidades);
 
             grid.ConfigurarGridZebrado();
 
             grid.ConfigurarGridSomenteLeitura();
         }
 
-        public void AtualizarRegistros(List<EntidadeTarefa> listaDeTarefas)
+        public void AtualizarRegistros(List<EntidadeTarefa> listaDeEntidades)
         {
-            grid.DataSource = listaDeTarefas;
+            BindingList<EntidadeTarefa> bindingList = new BindingList<EntidadeTarefa>(listaDeEntidades);
+            BindingSource source = new BindingSource(bindingList, null);
+            grid.DataSource = source;
         }
 
-        public EntidadeTarefa ObterTarefaSelecionada()
+        public EntidadeTarefa? ObterEntidadeSelecionada()
         {
-            return (EntidadeTarefa)grid.SelectedRows[0].DataBoundItem;
+            List<DataGridViewRow> rows = grid.SelectedRows.Cast<DataGridViewRow>().ToList();
+            if (rows.Count > 0)
+            {
+                return rows[0].DataBoundItem as EntidadeTarefa;
+            }
+            return null;
         }
     }
 }

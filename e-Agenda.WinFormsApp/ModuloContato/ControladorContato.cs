@@ -16,25 +16,24 @@ namespace e_Agenda.WinFormsApp.ModuloContato
 
         public override void Inserir()
         {
-            DialogContato telaContato = new DialogContato();
-
-            DialogResult opcaoEscolhida = telaContato.ShowDialog();
+            DialogContato dialog = new DialogContato();
+            DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                EntidadeContato contato = telaContato.Contato;
+                EntidadeContato entidade = dialog.Contato;
 
-                RepositorioContato.Inserir(contato);
+                RepositorioContato.Inserir(entidade);
 
-                CarregarContatos();
+                CarregarEntidades();
             }
         }
 
         public override void Editar()
         {
-            EntidadeContato contato = TabelaContatoControl.ObterContatoSelecionado();
+            EntidadeContato? entidade = TabelaContatoControl.ObterEntidadeSelecionada();
 
-            if (contato == null)
+            if (entidade == null)
             {
                 MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
                                 $"Edição de {TipoDoCadastro}s",
@@ -44,22 +43,22 @@ namespace e_Agenda.WinFormsApp.ModuloContato
                 return;
             }
 
-            DialogContato telaContato = new DialogContato();
-            telaContato.Contato = contato;
+            DialogContato dialog = new DialogContato();
+            dialog.Contato = entidade;
 
-            DialogResult opcaoEscolhida = telaContato.ShowDialog();
+            DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                RepositorioContato.Editar(telaContato.Contato);
+                RepositorioContato.Editar(dialog.Contato);
 
-                CarregarContatos();
+                CarregarEntidades();
             }
         }
 
         public override void Excluir()
         {            
-            EntidadeContato entidade = TabelaContatoControl.ObterContatoSelecionado();
+            EntidadeContato entidade = TabelaContatoControl.ObterEntidadeSelecionada();
 
             if (entidade == null)
             {
@@ -80,11 +79,11 @@ namespace e_Agenda.WinFormsApp.ModuloContato
             {
                 RepositorioContato.Excluir(entidade);
 
-                CarregarContatos();
+                CarregarEntidades();
             }
         }
 
-        private void CarregarContatos()
+        private void CarregarEntidades()
         {
             List<EntidadeContato> contatos = RepositorioContato.SelecionarTodaALista();
 
@@ -95,7 +94,7 @@ namespace e_Agenda.WinFormsApp.ModuloContato
         {
             TabelaContatoControl ??= new TabelaContatoControl(RepositorioContato.SelecionarTodaALista());
 
-            CarregarContatos();
+            CarregarEntidades();
 
             return TabelaContatoControl;
         }

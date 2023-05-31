@@ -59,11 +59,6 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
             itens = new List<ItemTarefa>();
         }
 
-        public override string ToString()
-        {
-            return "Id: " + Id + ", " + Titulo + ", Prioridade: " + Prioridade;
-        }
-
         public void AdicionarItem(ItemTarefa item)
         {
             if (!itens.Contains(item))
@@ -72,22 +67,14 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
         public void ConcluirItem(ItemTarefa item)
         {
-            //ItemTarefa? itemSelecionado = Itens.FirstOrDefault(x => x.Equals(item));
-
-            //itemSelecionado!.Concluir();
-
-            item!.Concluir();
+            item.Concluir();
 
             CalcularPercentualConcluido();
         }
 
         public void RecomecarProgresso(ItemTarefa item)
         {
-            //ItemTarefa? itemSelecionado = Itens.FirstOrDefault(x => x.Equals(item));
-
-            //itemSelecionado!.RecomecarProgresso();
-
-            item!.RecomecarProgresso();
+            item.RecomecarProgresso();
 
             CalcularPercentualConcluido();
         }
