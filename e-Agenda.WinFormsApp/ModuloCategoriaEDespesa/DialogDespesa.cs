@@ -1,17 +1,31 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
+using e_Agenda.WinFormsApp.ModuloTarefa;
+using System.ComponentModel;
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
     public partial class DialogDespesa : Form
     {
         private EntidadeDespesa entidadeDespesa;
-        public DialogDespesa()
+        private List<EntidadeCategoria> Entidades;
+        public DialogDespesa(List<EntidadeCategoria> entidades)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
 
             cmbFormaDePagamento.DataSource = Enum.GetValues<FormaDePagamento>();
+            Entidades=entidades;
+            ConfigurarTela(Entidades);
+        }
+
+        private void ConfigurarTela(List<EntidadeCategoria> entidades)
+        {
+            BindingList<EntidadeCategoria> bindingList = new BindingList<EntidadeCategoria>(Entidades);
+            BindingSource source = new BindingSource(bindingList, null);
+            clbCategorias.DataSource = source;
+            clbCategorias.DisplayMember = "Descricao";
+            clbCategorias.ValueMember = "Id";
         }
 
         public EntidadeDespesa Despesa
@@ -28,6 +42,20 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
                 txtValor.Text = entidadeDespesa.Valor.ToString();
                 dtpData.Value = entidadeDespesa.Data;
                 cmbFormaDePagamento.SelectedItem = entidadeDespesa.FormaDePagamento;
+
+
+
+                BindingList<EntidadeCategoria> bindingList = new BindingList<EntidadeCategoria>(Entidades);
+                BindingSource source = new BindingSource(bindingList, null);
+                clbCategorias.DataSource = source;
+                clbCategorias.DisplayMember = "Descricao";
+                clbCategorias.ValueMember = "Id";
+
+                for (int i = 0; i < clbCategorias.Items.Count; i++)
+                {
+                    EntidadeCategoria obj = (EntidadeCategoria)clbCategorias.Items[i];
+                    clbCategorias.SetItemChecked(i, obj.Despesas.Any(e => e.Id == entidadeDespesa.Id));
+                }
 
             }
         }
@@ -53,6 +81,18 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
                     entidadeDespesa.Id = Convert.ToInt32(labelId.Text);
                 TelaPrincipalForm.Instancia.AtualizarToolStrip("");
             }
+        }
+
+        public List<EntidadeCategoria> ObterItensMarcados()
+        {
+            return clbCategorias.CheckedItems.Cast<EntidadeCategoria>().ToList();
+        }
+
+        public List<EntidadeCategoria> ObterItensPendentes()
+        {
+            return clbCategorias.Items.Cast<EntidadeCategoria>()
+                .Except(ObterItensMarcados())
+                .ToList();
         }
     }
 }

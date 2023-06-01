@@ -53,6 +53,8 @@ namespace e_Agenda.WinFormsApp
             toolStripSeparator3=new ToolStripSeparator();
             labelTipoCadastro=new ToolStripLabel();
             panelRegistros=new Panel();
+            btnListarDespesas=new ToolStripButton();
+            toolStripSeparator4=new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -77,21 +79,21 @@ namespace e_Agenda.WinFormsApp
             // compromissosMenuItem
             // 
             compromissosMenuItem.Name="compromissosMenuItem";
-            compromissosMenuItem.Size=new Size(180, 22);
+            compromissosMenuItem.Size=new Size(154, 22);
             compromissosMenuItem.Text="Compromissos";
             compromissosMenuItem.Click+=compromissosMenuItem_Click;
             // 
             // contatosMenuItem
             // 
             contatosMenuItem.Name="contatosMenuItem";
-            contatosMenuItem.Size=new Size(180, 22);
+            contatosMenuItem.Size=new Size(154, 22);
             contatosMenuItem.Text="Contatos";
             contatosMenuItem.Click+=contatosMenuItem_Click;
             // 
             // tarefasMenuItem
             // 
             tarefasMenuItem.Name="tarefasMenuItem";
-            tarefasMenuItem.Size=new Size(180, 22);
+            tarefasMenuItem.Size=new Size(154, 22);
             tarefasMenuItem.Text="Tarefas";
             tarefasMenuItem.Click+=tarefasMenuItem_Click;
             // 
@@ -99,20 +101,20 @@ namespace e_Agenda.WinFormsApp
             // 
             despesasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { despesasMenuItem, categoriasMenuItem });
             despesasToolStripMenuItem.Name="despesasToolStripMenuItem";
-            despesasToolStripMenuItem.Size=new Size(180, 22);
+            despesasToolStripMenuItem.Size=new Size(154, 22);
             despesasToolStripMenuItem.Text="Despesas";
             // 
             // despesasMenuItem
             // 
             despesasMenuItem.Name="despesasMenuItem";
-            despesasMenuItem.Size=new Size(180, 22);
+            despesasMenuItem.Size=new Size(130, 22);
             despesasMenuItem.Text="Despesas";
             despesasMenuItem.Click+=despesasMenuItem_Click;
             // 
             // categoriasMenuItem
             // 
             categoriasMenuItem.Name="categoriasMenuItem";
-            categoriasMenuItem.Size=new Size(180, 22);
+            categoriasMenuItem.Size=new Size(130, 22);
             categoriasMenuItem.Text="Categorias";
             categoriasMenuItem.Click+=categoriasMenuItem_Click;
             // 
@@ -138,7 +140,7 @@ namespace e_Agenda.WinFormsApp
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator1, btnAdicionarItens, btnConcluirItens, toolStripSeparator3, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator1, btnAdicionarItens, btnConcluirItens, toolStripSeparator4, btnListarDespesas, toolStripSeparator3, labelTipoCadastro });
             toolStrip1.Location=new Point(0, 24);
             toolStrip1.Name="toolStrip1";
             toolStrip1.Size=new Size(1098, 45);
@@ -247,6 +249,23 @@ namespace e_Agenda.WinFormsApp
             panelRegistros.Size=new Size(1098, 470);
             panelRegistros.TabIndex=3;
             // 
+            // btnListarDespesas
+            // 
+            btnListarDespesas.DisplayStyle=ToolStripItemDisplayStyle.Image;
+            btnListarDespesas.Enabled=false;
+            btnListarDespesas.Image=Resources.list_FILL0_wght400_GRAD0_opsz24;
+            btnListarDespesas.ImageScaling=ToolStripItemImageScaling.None;
+            btnListarDespesas.ImageTransparentColor=Color.Magenta;
+            btnListarDespesas.Name="btnListarDespesas";
+            btnListarDespesas.Padding=new Padding(7);
+            btnListarDespesas.Size=new Size(42, 42);
+            btnListarDespesas.Click+=btnListarDespesas_Click;
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name="toolStripSeparator4";
+            toolStripSeparator4.Size=new Size(6, 45);
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
@@ -296,5 +315,7 @@ namespace e_Agenda.WinFormsApp
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton btnAdicionarItens;
         private ToolStripButton btnConcluirItens;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripButton btnListarDespesas;
     }
 }

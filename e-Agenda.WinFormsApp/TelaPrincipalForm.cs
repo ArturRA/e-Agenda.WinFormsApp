@@ -107,7 +107,7 @@ namespace e_Agenda.WinFormsApp
         }
         private void categoriasMenuItem_Click(object sender, EventArgs e)
         {
-            Controlador = new ControladorCategoria(RepositorioCategoria);
+            Controlador = new ControladorCategoria(RepositorioCategoria, RepositorioDespesa);
 
             ConfigurarTelaPrincipal(Controlador);
         }
@@ -153,6 +153,7 @@ namespace e_Agenda.WinFormsApp
             btnFiltrar.ToolTipText= controlador.ToolTipFiltrar;
             btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
             btnConcluirItens.ToolTipText = controlador.ToolTipConcluirItens;
+            btnListarDespesas.ToolTipText = controlador.ToolTipListarDespesas;
 
             btnInserir.Enabled = controlador.ToolTipEnableInserir;
             btnEditar.Enabled = controlador.ToolTipEnableEditar;
@@ -160,6 +161,7 @@ namespace e_Agenda.WinFormsApp
             btnFiltrar.Enabled = controlador.ToolTipEnableFiltrar;
             btnAdicionarItens.Enabled = controlador.ToolTipEnableAdicionarItens;
             btnConcluirItens.Enabled = controlador.ToolTipEnableConcluirItens;
+            btnListarDespesas.Enabled = controlador.ToolTipEnableListarDespesas;
         }
 
         private void ConfigurarListagem(Controlador controladorBase)
@@ -202,6 +204,11 @@ namespace e_Agenda.WinFormsApp
         private void btnConcluirItens_Click(object sender, EventArgs e)
         {
             Controlador.ConcluirItens();
+        }
+
+        private void btnListarDespesas_Click(object sender, EventArgs e)
+        {
+            Controlador.ListarDespesas();
         }
     }
 }

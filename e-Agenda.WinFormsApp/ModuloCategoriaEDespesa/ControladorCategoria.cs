@@ -5,12 +5,16 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
     public class ControladorCategoria : Controlador
     {
         private RepositorioCategoria RepositorioCategoria { get; set; }
+        private RepositorioDespesa RepositorioDespesa { get; set; }
         private TabelaCategoriaControl TabelaCategoria { get; set; }
         public override string TipoDoCadastro => "Categoria";
+        public override string ToolTipListarDespesas => $"Listar as Despesas da {TipoDoCadastro}";
+        public override bool ToolTipEnableListarDespesas => true;
 
-        public ControladorCategoria(RepositorioCategoria repositorioCategoria)
+        public ControladorCategoria(RepositorioCategoria repositorioCategoria, RepositorioDespesa repositorioDespesa)
         {
             RepositorioCategoria=repositorioCategoria;
+            RepositorioDespesa=repositorioDespesa;
         }
 
 
@@ -40,7 +44,6 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
                                 $"Edição de {TipoDoCadastro}s",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation);
-
                 return;
             }
 
@@ -67,7 +70,6 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
                                 $"Exclusão de {TipoDoCadastro}s",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation);
-
                 return;
             }
 
@@ -82,6 +84,24 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 
                 CarregarEntidades();
             }
+        }
+
+        public override void ListarDespesas()
+        {
+            EntidadeCategoria? entidade = TabelaCategoria.ObterEntidadeSelecionada();
+
+            if (entidade == null)
+            {
+                MessageBox.Show($"Selecione um {TipoDoCadastro} primeiro!",
+                                $"Listagem das Despesas da {TipoDoCadastro}s",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogDespesasDeCategoria dialog = new DialogDespesasDeCategoria(entidade.Descricao, RepositorioDespesa.SelecionarDespesasDaCategoria(entidade)!);
+
+            DialogResult opcaoEscolhida = dialog.ShowDialog();
         }
 
         private void CarregarEntidades()

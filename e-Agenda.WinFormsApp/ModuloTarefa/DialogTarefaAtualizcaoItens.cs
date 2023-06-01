@@ -29,15 +29,15 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
             }
         }
 
-        public List<ItemTarefa> ObterItensMarcados()
+        public List<ItemTarefa> ObterItensChecked()
         {
             return listItensTarefa.CheckedItems.Cast<ItemTarefa>().ToList();
         }
 
-        public List<ItemTarefa> ObterItensPendentes()
+        public List<ItemTarefa> ObterItensUnChecked()
         {
             return listItensTarefa.Items.Cast<ItemTarefa>()
-                .Except(ObterItensMarcados())
+                .Except(ObterItensChecked())
                 .ToList();
         }
     }

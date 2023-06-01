@@ -65,14 +65,14 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
                 itens.Add(item);
         }
 
-        public void ConcluirItem(ItemTarefa item)
+        public void CheckItem(ItemTarefa item)
         {
             item.Concluir();
 
             CalcularPercentualConcluido();
         }
 
-        public void RecomecarProgresso(ItemTarefa item)
+        public void UnCheckItem(ItemTarefa item)
         {
             item.RecomecarProgresso();
 

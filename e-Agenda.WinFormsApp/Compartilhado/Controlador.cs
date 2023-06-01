@@ -9,6 +9,7 @@
         public virtual string ToolTipFiltrar => "";
         public virtual string ToolTipAdicionarItens => "";
         public virtual string ToolTipConcluirItens => "";
+        public virtual string ToolTipListarDespesas => "";
         public string ObterTipoCadastro => $"Cadastro de {TipoDoCadastro}";
 
         public virtual bool ToolTipEnableInserir => true;
@@ -17,6 +18,7 @@
         public virtual bool ToolTipEnableFiltrar => false;
         public virtual bool ToolTipEnableAdicionarItens => false;
         public virtual bool ToolTipEnableConcluirItens => false;
+        public virtual bool ToolTipEnableListarDespesas => false;
 
         public abstract void Inserir();
         public abstract void Editar();
@@ -28,6 +30,9 @@
         {
         }
         public virtual void ConcluirItens()
+        {
+        }
+        public virtual void ListarDespesas()
         {
         }
         public abstract UserControl ObterListagem();

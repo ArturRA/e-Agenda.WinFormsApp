@@ -130,13 +130,13 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
                 return;
             }
 
-            DialogTarefaCadastroItens telaCadastroItensTarefa = new DialogTarefaCadastroItens(entidade);
+            DialogTarefaCadastroItens dialog = new DialogTarefaCadastroItens(entidade);
 
-            DialogResult opcaoEscolhida = telaCadastroItensTarefa.ShowDialog();
+            DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                List<ItemTarefa> listaDeItensAtualizados = telaCadastroItensTarefa.ObterItensCadastrados();
+                List<ItemTarefa> listaDeItensAtualizados = dialog.ObterItensCadastrados();
                 listaDeItensAtualizados.ForEach(i => entidade.AdicionarItem(i));
                 CarregarEntidades();
             }
@@ -153,16 +153,16 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
                 return;
             }
 
-            DialogTarefaAtualizcaoItens telaAtualizacaoItensTarefa = new DialogTarefaAtualizcaoItens(entidade);
+            DialogTarefaAtualizcaoItens dialog = new DialogTarefaAtualizcaoItens(entidade);
 
-            DialogResult opcaoEscolhida = telaAtualizacaoItensTarefa.ShowDialog();
+            DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                List<ItemTarefa> itensMarcados = telaAtualizacaoItensTarefa.ObterItensMarcados();
-                itensMarcados.ForEach(i => entidade.ConcluirItem(i));
-                List<ItemTarefa> itensPendentes = telaAtualizacaoItensTarefa.ObterItensPendentes();
-                itensPendentes.ForEach(i => entidade.RecomecarProgresso(i));
+                List<ItemTarefa> itensChecked = dialog.ObterItensChecked();
+                itensChecked.ForEach(i => entidade.CheckItem(i));
+                List<ItemTarefa> itensUnChecked = dialog.ObterItensUnChecked();
+                itensUnChecked.ForEach(i => entidade.UnCheckItem(i));
 
                 CarregarEntidades();
             }

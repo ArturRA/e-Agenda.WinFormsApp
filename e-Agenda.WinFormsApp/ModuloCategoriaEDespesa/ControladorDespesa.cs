@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
+using e_Agenda.WinFormsApp.ModuloTarefa;
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
@@ -17,13 +18,24 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 
         public override void Inserir()
         {
-            DialogDespesa dialog = new DialogDespesa();
+            DialogDespesa dialog = new DialogDespesa(RepositorioCategoria.SelecionarTodaALista());
             DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
                 EntidadeDespesa entidade = dialog.Despesa;
-
+                List<EntidadeCategoria> itensChecked = dialog.ObterItensMarcados();
+                itensChecked.ForEach(i =>
+                {
+                    i.AdicionarDespesa(entidade);
+                    entidade.AdicionarCategoria(i);
+                });
+                List<EntidadeCategoria> itensUnChecked = dialog.ObterItensPendentes();
+                itensUnChecked.ForEach(i =>
+                {
+                    i.RemoverDespesa(entidade);
+                    entidade.RemoverCategoria(i);
+                });
                 RepositorioDespesa.Inserir(entidade);
 
                 CarregarEntidades();
@@ -44,14 +56,28 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
                 return;
             }
 
-            DialogDespesa dialog = new DialogDespesa();
+            DialogDespesa dialog = new DialogDespesa(RepositorioCategoria.SelecionarTodaALista());
             dialog.Despesa = entidade;
 
             DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                RepositorioDespesa.Editar(dialog.Despesa);
+                entidade = dialog.Despesa;
+                List<EntidadeCategoria> itensChecked = dialog.ObterItensMarcados();
+                itensChecked.ForEach(i =>
+                {
+                    i.AdicionarDespesa(entidade);
+                    entidade.AdicionarCategoria(i);
+                });
+                List<EntidadeCategoria> itensUnChecked = dialog.ObterItensPendentes();
+                itensUnChecked.ForEach(i =>
+                {
+                    i.RemoverDespesa(entidade);
+                    entidade.RemoverCategoria(i);
+                });
+
+                RepositorioDespesa.Editar(entidade);
 
                 CarregarEntidades();
             }
@@ -84,94 +110,10 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
             }
         }
 
-        //public override void Filtrar()
-        //{
-        //    DialogTarefaFiltro dialog = new DialogTarefaFiltro();
-
-        //    DialogResult opcaoEscolhida = dialog.ShowDialog();
-
-        //    if (opcaoEscolhida == DialogResult.OK)
-        //    {
-        //        TipoDoFiltroTarefa TipoFiltro = dialog.TipoFiltroTarefa;
-        //        List<EntidadeDespesa>? entidades = null;
-
-        //        switch (TipoFiltro)
-        //        {
-        //            case TipoDoFiltroTarefa.Pendentes:
-        //                entidades = RepositorioTarefa.SelecionarPendentes();
-        //                break;
-        //            case TipoDoFiltroTarefa.Concluidas:
-        //                entidades = RepositorioTarefa.SelecionarConcluidas();
-        //                break;
-        //            default:
-        //                entidades = RepositorioTarefa.SelecionarTodosOrdenadosPorPrioridade();
-        //                break;
-        //        }
-
-        //        CarregarTarefas(entidades!);
-
-        //        TelaPrincipalForm.Instancia.AtualizarToolStrip($"Visualizando {entidades!.Count} compromissos");
-        //    }
-        //}
-
-        //public override void AdicionarItens()
-        //{
-        //    EntidadeDespesa entidade = TabelaTarefas.ObterTarefaSelecionada();
-
-        //    if (entidade == null)
-        //    {
-        //        MessageBox.Show("Selecione uma tarefa primeiro", "Adição de Itens da Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-        //        return;
-        //    }
-
-        //    DialogTarefaCadastroItens telaCadastroItensTarefa = new DialogTarefaCadastroItens(entidade);
-
-        //    DialogResult opcaoEscolhida = telaCadastroItensTarefa.ShowDialog();
-
-        //    if (opcaoEscolhida == DialogResult.OK)
-        //    {
-        //        List<ItemTarefa> listaDeItensAtualizados = telaCadastroItensTarefa.ObterItensCadastrados();
-        //        listaDeItensAtualizados.ForEach(i => entidade.AdicionarItem(i));
-        //        CarregarTarefas();
-        //    }
-        //}
-
-        //public override void ConcluirItens()
-        //{
-        //    EntidadeDespesa entidade = TabelaTarefas.ObterTarefaSelecionada();
-
-        //    if (entidade == null)
-        //    {
-        //        MessageBox.Show("Selecione uma tarefa primeiro", "Atualização de Itens da Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-        //        return;
-        //    }
-
-        //    DialogTarefaAtualizcaoItens telaAtualizacaoItensTarefa = new DialogTarefaAtualizcaoItens(entidade);
-
-        //    DialogResult opcaoEscolhida = telaAtualizacaoItensTarefa.ShowDialog();
-
-        //    if (opcaoEscolhida == DialogResult.OK)
-        //    {
-        //        List<ItemTarefa> itensMarcados = telaAtualizacaoItensTarefa.ObterItensMarcados();
-        //        itensMarcados.ForEach(i => entidade.ConcluirItem(i));
-        //        List<ItemTarefa> itensPendentes = telaAtualizacaoItensTarefa.ObterItensPendentes();
-        //        itensPendentes.ForEach(i => entidade.RecomecarProgresso(i));
-
-        //        CarregarTarefas();
-        //    }
-        //}
-
         private void CarregarEntidades()
         {
             List<EntidadeDespesa> entidades = RepositorioDespesa.SelecionarTodaALista();
 
-            TabelaDespesas.AtualizarRegistros(entidades);
-        }
-
-        private void CarregarEntidades(List<EntidadeDespesa> entidades)
-        {
             TabelaDespesas.AtualizarRegistros(entidades);
         }
 
