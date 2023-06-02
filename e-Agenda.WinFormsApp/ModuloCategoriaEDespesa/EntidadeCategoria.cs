@@ -1,5 +1,5 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
-using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
@@ -7,6 +7,10 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
     {
         public string Descricao { get; set; }
         public List<EntidadeDespesa> Despesas { get; set; }
+
+        public EntidadeCategoria()
+        {
+        }
 
         public EntidadeCategoria(string descricao)
         {

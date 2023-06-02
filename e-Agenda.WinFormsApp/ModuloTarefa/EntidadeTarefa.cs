@@ -1,5 +1,6 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
 using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
 
 namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
@@ -14,6 +15,10 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
     {
         public string Titulo { get; set; }
         public bool Concluido { get; set; }
+
+        public ItemTarefa()
+        {
+        }
 
         public ItemTarefa(string titulo)
         {
@@ -41,28 +46,25 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
         public string Titulo { get; set; }
         public PrioridadeTarefaEnum Prioridade { get; set; }
         public DateTime DataCriacao { get; set; }
-        private List<ItemTarefa> itens { get; set; }
-        public ReadOnlyCollection<ItemTarefa> Itens
-        {
-            get
-            {
-                return itens.AsReadOnly();
-            }
-        }
+        public List<ItemTarefa> Itens { get; set; }
         public decimal PercentualConcluido { get; set; }
+
+        public EntidadeTarefa()
+        {
+        }
 
         public EntidadeTarefa(string titulo, PrioridadeTarefaEnum prioridade, DateTime dataCriacao)
         {
             Titulo=titulo;
             Prioridade=prioridade;
             DataCriacao=dataCriacao;
-            itens = new List<ItemTarefa>();
+            Itens = new List<ItemTarefa>();
         }
 
         public void AdicionarItem(ItemTarefa item)
         {
-            if (!itens.Contains(item))
-                itens.Add(item);
+            if (!Itens.Contains(item))
+                Itens.Add(item);
         }
 
         public void CheckItem(ItemTarefa item)
@@ -81,12 +83,12 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
         private void CalcularPercentualConcluido()
         {
-            decimal qtdItens = itens.Count;
+            decimal qtdItens = Itens.Count;
 
             if (qtdItens == 0)
                 return;
 
-            decimal qtdConcluidos = itens.Count(x => x.Concluido == true);
+            decimal qtdConcluidos = Itens.Count(x => x.Concluido == true);
 
             decimal resultado = (qtdConcluidos / qtdItens) * 100;
 

@@ -2,7 +2,7 @@
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
-    public class RepositorioCategoria : Repositorio<EntidadeCategoria>
+    public interface IRepositorioCategoria : IRepositorio<EntidadeCategoria>
     {
     }
 }

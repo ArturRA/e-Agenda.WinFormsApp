@@ -2,15 +2,13 @@
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
-    internal class RepositorioCompromisso : Repositorio<EntidadeCompromisso>
+    public class RepositorioCompromissoEmMemoria : RepositorioEmMemoria<EntidadeCompromisso>, IRepositorioCompromisso
     {
-        //Selecionar Compromissos Passados
         public List<EntidadeCompromisso> SelecionarCompromissosPassados()
         {
             return Registros.Where(x => x.Data.Date < DateTime.Now).ToList();
         }
 
-        //Selecionar Compromissos Futuros ( dataInicio, dataFinal)
         public List<EntidadeCompromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal)
         {
             return Registros

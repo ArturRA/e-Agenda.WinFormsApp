@@ -1,16 +1,15 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
-using e_Agenda.WinFormsApp.ModuloTarefa;
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
     public class ControladorDespesa : Controlador
     {
-        private RepositorioDespesa RepositorioDespesa { get; set; }
-        private RepositorioCategoria RepositorioCategoria { get; set; }
+        private IRepositorioDespesa RepositorioDespesa { get; set; }
+        private IRepositorioCategoria RepositorioCategoria { get; set; }
         private TabelaDespesaControl TabelaDespesas { get; set; }
         public override string TipoDoCadastro => "Despesa";
 
-        public ControladorDespesa(RepositorioDespesa repositorioDespesa, RepositorioCategoria repositorioCategoria)
+        public ControladorDespesa(IRepositorioDespesa repositorioDespesa, IRepositorioCategoria repositorioCategoria)
         {
             RepositorioDespesa=repositorioDespesa;
             RepositorioCategoria=repositorioCategoria;
@@ -18,7 +17,7 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 
         public override void Inserir()
         {
-            DialogDespesa dialog = new DialogDespesa(RepositorioCategoria.SelecionarTodaALista());
+            DialogDespesa dialog = new DialogDespesa(RepositorioCategoria.SelecionarTodos());
             DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -56,7 +55,7 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
                 return;
             }
 
-            DialogDespesa dialog = new DialogDespesa(RepositorioCategoria.SelecionarTodaALista());
+            DialogDespesa dialog = new DialogDespesa(RepositorioCategoria.SelecionarTodos());
             dialog.Despesa = entidade;
 
             DialogResult opcaoEscolhida = dialog.ShowDialog();
@@ -112,14 +111,14 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 
         private void CarregarEntidades()
         {
-            List<EntidadeDespesa> entidades = RepositorioDespesa.SelecionarTodaALista();
+            List<EntidadeDespesa> entidades = RepositorioDespesa.SelecionarTodos();
 
             TabelaDespesas.AtualizarRegistros(entidades);
         }
 
         public override UserControl ObterListagem()
         {
-            TabelaDespesas ??= new TabelaDespesaControl(RepositorioDespesa.SelecionarTodaALista());
+            TabelaDespesas ??= new TabelaDespesaControl(RepositorioDespesa.SelecionarTodos());
 
             CarregarEntidades();
 

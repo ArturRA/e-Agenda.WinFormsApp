@@ -1,5 +1,4 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
-using e_Agenda.WinFormsApp.ModuloTarefa;
 using System.ComponentModel;
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa

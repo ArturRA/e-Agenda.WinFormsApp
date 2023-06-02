@@ -4,16 +4,16 @@ using static e_Agenda.WinFormsApp.ModuloCompromisso.DialogCompromissoFiltro;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
-    internal class ControladorCompromisso : Controlador
+    public class ControladorCompromisso : Controlador
     {
-        private RepositorioCompromisso RepositorioCompromisso { get; set; }
-        private RepositorioContato RepositorioContato { get; set; }
+        private IRepositorioCompromisso RepositorioCompromisso { get; set; }
+        private IRepositorioContato RepositorioContato { get; set; }
         private TabelaCompromissoControl TabelaCompromissoControl { get; set; }
         public override string TipoDoCadastro => "Compromisso";
         public override string ToolTipFiltrar => $"Filtrar {TipoDoCadastro} existente";
         public override bool ToolTipEnableFiltrar => true;
 
-        public ControladorCompromisso(RepositorioCompromisso repositorioCompromisso, RepositorioContato repositorioContato)
+        public ControladorCompromisso(IRepositorioCompromisso repositorioCompromisso, IRepositorioContato repositorioContato)
         {
             RepositorioCompromisso=repositorioCompromisso;
             RepositorioContato=repositorioContato;
@@ -21,7 +21,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         
         public override void Inserir()
         {
-            DialogCompromisso dialog = new DialogCompromisso(RepositorioContato.SelecionarTodaALista());
+            DialogCompromisso dialog = new DialogCompromisso(RepositorioContato.SelecionarTodos());
             DialogResult opcaoEscolhida = dialog.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -48,7 +48,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
                 return;
             }
 
-            DialogCompromisso dialog = new DialogCompromisso(RepositorioContato.SelecionarTodaALista());
+            DialogCompromisso dialog = new DialogCompromisso(RepositorioContato.SelecionarTodos());
             dialog.Compromisso = entidade;
 
             DialogResult opcaoEscolhida = dialog.ShowDialog();
@@ -102,7 +102,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
                 switch (TipoFiltro)
                 {
                     case TipoDoFiltro.Todos:
-                        entidades = RepositorioCompromisso.SelecionarTodaALista();
+                        entidades = RepositorioCompromisso.SelecionarTodos();
                         break;
                     case TipoDoFiltro.Passados:
                         entidades = RepositorioCompromisso.SelecionarCompromissosPassados();
@@ -120,7 +120,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
         private void CarregarEntidades()
         {
-            List<EntidadeCompromisso> entidades = RepositorioCompromisso.SelecionarTodaALista();
+            List<EntidadeCompromisso> entidades = RepositorioCompromisso.SelecionarTodos();
 
             TabelaCompromissoControl.AtualizarRegistros(entidades);
         }
@@ -132,7 +132,7 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
 
         public override UserControl ObterListagem()
         {
-            TabelaCompromissoControl ??= new TabelaCompromissoControl(RepositorioCompromisso.SelecionarTodaALista());
+            TabelaCompromissoControl ??= new TabelaCompromissoControl(RepositorioCompromisso.SelecionarTodos());
 
             CarregarEntidades();
 

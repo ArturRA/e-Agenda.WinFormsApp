@@ -4,11 +4,11 @@ namespace e_Agenda.WinFormsApp.ModuloContato
 {
     public class ControladorContato : Controlador
     {
-        private RepositorioContato RepositorioContato { get; set; }
+        private IRepositorioContato RepositorioContato { get; set; }
         private TabelaContatoControl TabelaContatoControl { get; set; }
         public override string TipoDoCadastro => "Contato";
 
-        public ControladorContato(RepositorioContato repositorioContato)
+        public ControladorContato(IRepositorioContato repositorioContato)
         {
             RepositorioContato=repositorioContato;
         }
@@ -85,14 +85,14 @@ namespace e_Agenda.WinFormsApp.ModuloContato
 
         private void CarregarEntidades()
         {
-            List<EntidadeContato> contatos = RepositorioContato.SelecionarTodaALista();
+            List<EntidadeContato> contatos = RepositorioContato.SelecionarTodos();
 
             TabelaContatoControl.AtualizarRegistros(contatos);
         }
 
         public override UserControl ObterListagem()
         {
-            TabelaContatoControl ??= new TabelaContatoControl(RepositorioContato.SelecionarTodaALista());
+            TabelaContatoControl ??= new TabelaContatoControl(RepositorioContato.SelecionarTodos());
 
             CarregarEntidades();
 

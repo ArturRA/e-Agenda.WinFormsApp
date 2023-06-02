@@ -5,7 +5,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
     public class ControladorTarefa : Controlador
     {
-        private RepositorioTarefa RepositorioTarefa { get; set; }
+        private IRepositorioTarefa RepositorioTarefa { get; set; }
         private TabelaTarefaControl TabelaTarefa { get; set; }
         public override string TipoDoCadastro => "Tarefa";
         public override string ToolTipFiltrar => $"Filtrar {TipoDoCadastro} existente";
@@ -15,7 +15,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
         public override bool ToolTipEnableAdicionarItens => true;
         public override bool ToolTipEnableConcluirItens => true;
 
-        public ControladorTarefa(RepositorioTarefa repositorioTarefa)
+        public ControladorTarefa(IRepositorioTarefa repositorioTarefa)
         {
             RepositorioTarefa=repositorioTarefa;
         }
@@ -182,7 +182,7 @@ namespace e_Agenda.WinFormsApp.ModuloTarefa
 
         public override UserControl ObterListagem()
         {
-            TabelaTarefa ??= new TabelaTarefaControl(RepositorioTarefa.SelecionarTodaALista());
+            TabelaTarefa ??= new TabelaTarefaControl(RepositorioTarefa.SelecionarTodos());
 
             CarregarEntidades();
 

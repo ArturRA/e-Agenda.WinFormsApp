@@ -1,6 +1,7 @@
 ﻿namespace e_Agenda.WinFormsApp.Compartilhado
 {
-    public abstract class Entidade<TipoEntidade> where TipoEntidade : Entidade<TipoEntidade>
+    public abstract class Entidade<TipoEntidade>
+        where TipoEntidade : Entidade<TipoEntidade>
     {
         public int Id { get; set; }
 

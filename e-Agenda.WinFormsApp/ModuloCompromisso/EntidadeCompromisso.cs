@@ -1,5 +1,6 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
 using e_Agenda.WinFormsApp.ModuloContato;
+using System.Text.Json.Serialization;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
@@ -20,6 +21,10 @@ namespace e_Agenda.WinFormsApp.ModuloCompromisso
         public EntidadeContato? Contato { get; set; }
         public TipoDaLocalizacao TipoDoLocal { get; set; }
         public string Locao { get; set; }
+
+        public EntidadeCompromisso()
+        {
+        }
 
         public EntidadeCompromisso(string assunto, DateTime data, TimeSpan horarioInicio, TimeSpan horarioFim, bool temContato,
                                    EntidadeContato? contato, TipoDaLocalizacao tipoDoLocal, string locao)

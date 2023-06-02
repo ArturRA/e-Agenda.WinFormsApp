@@ -4,14 +4,14 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
     public class ControladorCategoria : Controlador
     {
-        private RepositorioCategoria RepositorioCategoria { get; set; }
-        private RepositorioDespesa RepositorioDespesa { get; set; }
+        private IRepositorioCategoria RepositorioCategoria { get; set; }
+        private IRepositorioDespesa RepositorioDespesa { get; set; }
         private TabelaCategoriaControl TabelaCategoria { get; set; }
         public override string TipoDoCadastro => "Categoria";
         public override string ToolTipListarDespesas => $"Listar as Despesas da {TipoDoCadastro}";
         public override bool ToolTipEnableListarDespesas => true;
 
-        public ControladorCategoria(RepositorioCategoria repositorioCategoria, RepositorioDespesa repositorioDespesa)
+        public ControladorCategoria(IRepositorioCategoria repositorioCategoria, IRepositorioDespesa repositorioDespesa)
         {
             RepositorioCategoria=repositorioCategoria;
             RepositorioDespesa=repositorioDespesa;
@@ -106,14 +106,14 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 
         private void CarregarEntidades()
         {
-            List<EntidadeCategoria> entidades = RepositorioCategoria.SelecionarTodaALista();
+            List<EntidadeCategoria> entidades = RepositorioCategoria.SelecionarTodos();
 
             TabelaCategoria.AtualizarRegistros(entidades);
         }
 
         public override UserControl ObterListagem()
         {
-            TabelaCategoria ??= new TabelaCategoriaControl(RepositorioCategoria.SelecionarTodaALista());
+            TabelaCategoria ??= new TabelaCategoriaControl(RepositorioCategoria.SelecionarTodos());
 
             CarregarEntidades();
 

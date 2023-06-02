@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace e_Agenda.WinFormsApp.ModuloContato
@@ -10,6 +11,10 @@ namespace e_Agenda.WinFormsApp.ModuloContato
         public string Email { get; set; }
         public string Cargo { get; set; }
         public string Empresa { get; set; }
+
+        public EntidadeContato()
+        {
+        }
 
         public EntidadeContato(string nome, string telefone, string email, string cargo, string empresa)
         {

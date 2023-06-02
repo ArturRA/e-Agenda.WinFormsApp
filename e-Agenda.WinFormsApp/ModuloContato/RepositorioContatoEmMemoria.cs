@@ -2,7 +2,7 @@
 
 namespace e_Agenda.WinFormsApp.ModuloContato
 {
-    public class RepositorioContato : Repositorio<EntidadeContato>
+    public class RepositorioContatoEmMemoria : RepositorioEmMemoria<EntidadeContato>, IRepositorioContato
     {
     }
 }

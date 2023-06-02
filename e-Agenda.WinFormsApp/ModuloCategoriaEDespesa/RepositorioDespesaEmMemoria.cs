@@ -1,9 +1,8 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
-using e_Agenda.WinFormsApp.ModuloTarefa;
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
-    public class RepositorioDespesa : Repositorio<EntidadeDespesa>
+    public class RepositorioDespesaEmMemoria : RepositorioEmMemoria<EntidadeDespesa>, IRepositorioDespesa
     {
         public List<EntidadeDespesa>? SelecionarDespesasDaCategoria(EntidadeCategoria? entidade)
         {

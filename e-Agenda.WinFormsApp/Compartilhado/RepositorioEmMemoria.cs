@@ -1,20 +1,21 @@
 ﻿namespace e_Agenda.WinFormsApp.Compartilhado
 {
-    public class Repositorio<TipoEntidade> where TipoEntidade : Entidade<TipoEntidade>
+    public abstract class RepositorioEmMemoria<TipoEntidade>
+        where TipoEntidade : Entidade<TipoEntidade>
     {
-        protected int contadorDeId = 1;
+        protected int ContadorDeId { get; set; } = 1;
         protected List<TipoEntidade> Registros { get;} = new List<TipoEntidade>();
 
         public void Inserir(TipoEntidade entidade)
         {
-            entidade.Id = contadorDeId;
+            entidade.Id = ContadorDeId;
             Registros.Add(entidade);
-            contadorDeId++;
+            ContadorDeId++;
         }
 
         public void Editar(TipoEntidade entidadeComValoresAtualizados)
         {
-            TipoEntidade? entidadeParaAtualizar = SelecionarElementoPeloId(entidadeComValoresAtualizados.Id);
+            TipoEntidade? entidadeParaAtualizar = SelecionarPeloId(entidadeComValoresAtualizados.Id);
             entidadeParaAtualizar!.Editar(entidadeComValoresAtualizados);
         }
 
@@ -23,12 +24,12 @@
             Registros.Remove(elementoParaExcluir);
         }
 
-        public TipoEntidade? SelecionarElementoPeloId(int id)
+        public TipoEntidade? SelecionarPeloId(int id)
         {
             return Registros.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<TipoEntidade> SelecionarTodaALista()
+        public List<TipoEntidade> SelecionarTodos()
         {
             return Registros;
         }
