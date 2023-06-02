@@ -80,6 +80,8 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                entidade.Despesas.ForEach(d => d.RemoverCategoria(entidade));
+
                 RepositorioCategoria.Excluir(entidade);
 
                 CarregarEntidades();

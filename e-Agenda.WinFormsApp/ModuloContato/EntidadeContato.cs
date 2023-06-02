@@ -1,5 +1,4 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
-using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace e_Agenda.WinFormsApp.ModuloContato

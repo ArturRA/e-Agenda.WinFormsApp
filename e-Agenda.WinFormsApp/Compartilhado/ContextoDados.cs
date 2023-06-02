@@ -4,7 +4,6 @@ using e_Agenda.WinFormsApp.ModuloContato;
 using e_Agenda.WinFormsApp.ModuloCompromisso;
 using e_Agenda.WinFormsApp.ModuloTarefa;
 using e_Agenda.WinFormsApp.ModuloCategoriaEDespesa;
-using System.IO;
 
 namespace e_Agenda.WinFormsApp.Compartilhado
 {

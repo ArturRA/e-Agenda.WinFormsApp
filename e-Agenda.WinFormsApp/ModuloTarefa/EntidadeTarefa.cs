@@ -1,6 +1,4 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
-using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
 
 namespace e_Agenda.WinFormsApp.ModuloTarefa
 {

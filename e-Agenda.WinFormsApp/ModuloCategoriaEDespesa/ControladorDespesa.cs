@@ -64,16 +64,16 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
             {
                 entidade = dialog.Despesa;
                 List<EntidadeCategoria> itensChecked = dialog.ObterItensMarcados();
-                itensChecked.ForEach(i =>
+                itensChecked.ForEach(categoria =>
                 {
-                    i.AdicionarDespesa(entidade);
-                    entidade.AdicionarCategoria(i);
+                    categoria.AdicionarDespesa(entidade);
+                    entidade.AdicionarCategoria(categoria);
                 });
                 List<EntidadeCategoria> itensUnChecked = dialog.ObterItensPendentes();
-                itensUnChecked.ForEach(i =>
+                itensUnChecked.ForEach(categoria =>
                 {
-                    i.RemoverDespesa(entidade);
-                    entidade.RemoverCategoria(i);
+                    categoria.RemoverDespesa(entidade);
+                    entidade.RemoverCategoria(categoria);
                 });
 
                 RepositorioDespesa.Editar(entidade);
@@ -103,6 +103,8 @@ namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                entidade.Categorias.ForEach(c => c.RemoverDespesa(entidade));
+
                 RepositorioDespesa.Excluir(entidade);
 
                 CarregarEntidades();

@@ -13,10 +13,10 @@
             ContadorDeId++;
         }
 
-        public void Editar(TipoEntidade entidadeComValoresAtualizados)
+        public void Editar(TipoEntidade entidadeAtualizado)
         {
-            TipoEntidade? entidadeParaAtualizar = SelecionarPeloId(entidadeComValoresAtualizados.Id);
-            entidadeParaAtualizar!.Editar(entidadeComValoresAtualizados);
+            TipoEntidade? entidadeParaAtualizar = SelecionarPeloId(entidadeAtualizado.Id);
+            entidadeParaAtualizar!.Editar(entidadeAtualizado);
         }
 
         public void Excluir(TipoEntidade elementoParaExcluir)

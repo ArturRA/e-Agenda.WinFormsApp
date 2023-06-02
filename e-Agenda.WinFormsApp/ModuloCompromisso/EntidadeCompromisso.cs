@@ -1,6 +1,5 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
 using e_Agenda.WinFormsApp.ModuloContato;
-using System.Text.Json.Serialization;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {

@@ -15,31 +15,31 @@
 
         protected abstract List<TipoEntidade> ObterRegistros();
 
-        public void Inserir(TipoEntidade novoRegistro)
+        public void Inserir(TipoEntidade entidade)
         {
             List<TipoEntidade> registros = ObterRegistros();
 
             ContadorDeId++;
-            novoRegistro.Id = ContadorDeId;
-            registros.Add(novoRegistro);
+            entidade.Id = ContadorDeId;
+            registros.Add(entidade);
 
             ContextoDados.GravarEmArquivoJson();
         }
 
-        public void Editar(TipoEntidade registroAtualizado)
+        public void Editar(TipoEntidade entidadeAtualizado)
         {
-            TipoEntidade? registroSelecionado = SelecionarPeloId(registroAtualizado.Id);
+            TipoEntidade? entidadeParaAtualizar = SelecionarPeloId(entidadeAtualizado.Id);
 
-            registroSelecionado!.Editar(registroAtualizado);
+            entidadeParaAtualizar!.Editar(entidadeAtualizado);
 
             ContextoDados.GravarEmArquivoJson();
         }
 
-        public void Excluir(TipoEntidade registroSelecionado)
+        public void Excluir(TipoEntidade entidade)
         {
             List<TipoEntidade> registros = ObterRegistros();
 
-            registros.Remove(registroSelecionado);
+            registros.Remove(entidade);
 
             ContextoDados.GravarEmArquivoJson();
         }

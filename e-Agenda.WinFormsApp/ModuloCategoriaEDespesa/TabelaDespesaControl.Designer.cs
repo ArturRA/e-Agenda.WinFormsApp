@@ -39,7 +39,7 @@
             grid.Location=new Point(0, 0);
             grid.Name="grid";
             grid.RowTemplate.Height=25;
-            grid.Size=new Size(479, 326);
+            grid.Size=new Size(716, 370);
             grid.TabIndex=0;
             // 
             // TabelaDespesaControl
@@ -48,7 +48,7 @@
             AutoScaleMode=AutoScaleMode.Font;
             Controls.Add(grid);
             Name="TabelaDespesaControl";
-            Size=new Size(479, 326);
+            Size=new Size(716, 370);
             ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }

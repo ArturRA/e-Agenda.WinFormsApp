@@ -1,5 +1,4 @@
 ﻿using e_Agenda.WinFormsApp.Compartilhado;
-using System.Text.Json.Serialization;
 
 namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
