@@ -1,8 +1,22 @@
-using e_Agenda.WinFormsApp.Compartilhado;
+using e_Agenda.WinFormsApp.ModuloCategoriaEDespesa;
+using e_Agenda.WinFormsApp.ModuloCompromisso;
 using e_Agenda.WinFormsApp.ModuloContato;
 using e_Agenda.WinFormsApp.ModuloTarefa;
-using e_Agenda.WinFormsApp.ModuloCompromisso;
-using e_Agenda.WinFormsApp.ModuloCategoriaEDespesa;
+
+using e_Agenda.Infra.Dados.Arquivo.Compartilhado;
+
+using e_Agenda.Dominio.ModuloCategoriaEDespesa;
+using e_Agenda.Dominio.ModuloCompromisso;
+using e_Agenda.Dominio.ModuloContato;
+using e_Agenda.Dominio.ModuloTarefa;
+using e_Agenda.Infra.Dados.Arquivo.ModuloCompromisso;
+using e_Agenda.Infra.Dados.Arquivo.ModuloCategoriaEDespesa;
+using e_Agenda.Infra.Dados.Arquivo.ModuloContato;
+using e_Agenda.Infra.Dados.Arquivo.ModuloTarefa;
+using e_Agenda.Infra.Dados.Memoria.ModuloCategoriaEDespesa;
+using e_Agenda.Infra.Dados.Memoria.ModuloCompromisso;
+using e_Agenda.Infra.Dados.Memoria.ModuloContato;
+using e_Agenda.Infra.Dados.Memoria.ModuloTarefa;
 
 namespace e_Agenda.WinFormsApp
 {

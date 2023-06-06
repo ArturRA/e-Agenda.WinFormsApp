@@ -51,7 +51,7 @@
             btnGravar.Location=new Point(329, 173);
             btnGravar.Name="btnGravar";
             btnGravar.Size=new Size(75, 41);
-            btnGravar.TabIndex=0;
+            btnGravar.TabIndex=12;
             btnGravar.Text="Gravar";
             btnGravar.UseVisualStyleBackColor=true;
             btnGravar.Click+=btnGravar_Click;
@@ -63,7 +63,7 @@
             btnCancelar.Location=new Point(410, 173);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(75, 41);
-            btnCancelar.TabIndex=1;
+            btnCancelar.TabIndex=13;
             btnCancelar.Text="Cancelar";
             btnCancelar.UseVisualStyleBackColor=true;
             // 
@@ -73,7 +73,7 @@
             label1.Location=new Point(59, 24);
             label1.Name="label1";
             label1.Size=new Size(20, 15);
-            label1.TabIndex=2;
+            label1.TabIndex=0;
             label1.Text="Id:";
             // 
             // txtId
@@ -82,7 +82,7 @@
             txtId.Name="txtId";
             txtId.ReadOnly=true;
             txtId.Size=new Size(100, 23);
-            txtId.TabIndex=3;
+            txtId.TabIndex=14;
             txtId.Text="0";
             // 
             // label2
@@ -91,7 +91,7 @@
             label2.Location=new Point(41, 54);
             label2.Name="label2";
             label2.Size=new Size(43, 15);
-            label2.TabIndex=4;
+            label2.TabIndex=2;
             label2.Text="Nome:";
             // 
             // txtNome
@@ -99,7 +99,7 @@
             txtNome.Location=new Point(90, 50);
             txtNome.Name="txtNome";
             txtNome.Size=new Size(395, 23);
-            txtNome.TabIndex=5;
+            txtNome.TabIndex=3;
             txtNome.TextChanged+=txtValidarContato;
             // 
             // txtCargo
@@ -107,7 +107,7 @@
             txtCargo.Location=new Point(90, 108);
             txtCargo.Name="txtCargo";
             txtCargo.Size=new Size(150, 23);
-            txtCargo.TabIndex=7;
+            txtCargo.TabIndex=9;
             txtCargo.TextChanged+=txtValidarContato;
             // 
             // txtEmail
@@ -115,7 +115,7 @@
             txtEmail.Location=new Point(336, 79);
             txtEmail.Name="txtEmail";
             txtEmail.Size=new Size(149, 23);
-            txtEmail.TabIndex=8;
+            txtEmail.TabIndex=7;
             txtEmail.TextChanged+=txtValidarContato;
             // 
             // txtEmpresa
@@ -123,7 +123,7 @@
             txtEmpresa.Location=new Point(336, 108);
             txtEmpresa.Name="txtEmpresa";
             txtEmpresa.Size=new Size(149, 23);
-            txtEmpresa.TabIndex=9;
+            txtEmpresa.TabIndex=11;
             txtEmpresa.TextChanged+=txtValidarContato;
             // 
             // label3
@@ -132,7 +132,7 @@
             label3.Location=new Point(30, 82);
             label3.Name="label3";
             label3.Size=new Size(54, 15);
-            label3.TabIndex=10;
+            label3.TabIndex=4;
             label3.Text="Telefone:";
             // 
             // label4
@@ -141,7 +141,7 @@
             label4.Location=new Point(287, 83);
             label4.Name="label4";
             label4.Size=new Size(44, 15);
-            label4.TabIndex=11;
+            label4.TabIndex=6;
             label4.Text="E-mail:";
             // 
             // label5
@@ -150,7 +150,7 @@
             label5.Location=new Point(276, 112);
             label5.Name="label5";
             label5.Size=new Size(55, 15);
-            label5.TabIndex=12;
+            label5.TabIndex=10;
             label5.Text="Empresa:";
             // 
             // label6
@@ -159,7 +159,7 @@
             label6.Location=new Point(41, 112);
             label6.Name="label6";
             label6.Size=new Size(42, 15);
-            label6.TabIndex=13;
+            label6.TabIndex=8;
             label6.Text="Cargo:";
             // 
             // txtTelefone
@@ -168,7 +168,7 @@
             txtTelefone.Mask="00 0 0000-0000";
             txtTelefone.Name="txtTelefone";
             txtTelefone.Size=new Size(150, 23);
-            txtTelefone.TabIndex=14;
+            txtTelefone.TabIndex=5;
             txtTelefone.TextChanged+=txtValidarContato;
             // 
             // DialogContato

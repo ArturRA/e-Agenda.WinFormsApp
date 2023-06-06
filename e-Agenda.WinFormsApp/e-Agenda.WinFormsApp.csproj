@@ -31,4 +31,10 @@
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\e-Agenda.Dominio\e-Agenda.Dominio.csproj" />
+    <ProjectReference Include="..\e-Agenda.Infra.Dados.Arquivo\e-Agenda.Infra.Dados.Arquivo.csproj" />
+    <ProjectReference Include="..\e-Agenda.Infra.Dados.Memoria\e-Agenda.Infra.Dados.Memoria.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,5 @@
-﻿using e_Agenda.WinFormsApp.Compartilhado;
-using e_Agenda.WinFormsApp.ModuloContato;
+﻿using e_Agenda.Dominio.ModuloCompromisso;
+using e_Agenda.Dominio.ModuloContato;
 using static e_Agenda.WinFormsApp.ModuloCompromisso.DialogCompromissoFiltro;
 
 namespace e_Agenda.WinFormsApp.ModuloCompromisso

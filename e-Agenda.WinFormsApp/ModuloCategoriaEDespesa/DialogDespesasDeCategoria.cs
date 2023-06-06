@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
+﻿using e_Agenda.Dominio.ModuloCategoriaEDespesa;
+
+namespace e_Agenda.WinFormsApp.ModuloCategoriaEDespesa
 {
     public partial class DialogDespesasDeCategoria : Form
     {

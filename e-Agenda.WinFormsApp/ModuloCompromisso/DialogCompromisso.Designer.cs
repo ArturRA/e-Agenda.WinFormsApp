@@ -163,10 +163,6 @@
             cbContatos.Size=new Size(277, 23);
             cbContatos.TabIndex=15;
             // 
-            // entidadeContatoBindingSource
-            // 
-            entidadeContatoBindingSource.DataSource=typeof(WinFormsApp.ModuloContato.EntidadeContato);
-            // 
             // label6
             // 
             label6.AutoSize=true;

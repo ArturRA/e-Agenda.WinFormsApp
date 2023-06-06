@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinFormsApp.Compartilhado;
-
-namespace e_Agenda.WinFormsApp.ModuloCompromisso
+﻿namespace e_Agenda.WinFormsApp.ModuloCompromisso
 {
     public partial class DialogCompromissoFiltro : Form
     {

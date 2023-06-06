@@ -1,4 +1,4 @@
-﻿using e_Agenda.WinFormsApp.Compartilhado;
+﻿using e_Agenda.Dominio.ModuloContato;
 using System.ComponentModel;
 
 namespace e_Agenda.WinFormsApp.ModuloContato

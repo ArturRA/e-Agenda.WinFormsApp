@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinFormsApp.Compartilhado;
-
-namespace e_Agenda.WinFormsApp.ModuloTarefa
+﻿namespace e_Agenda.WinFormsApp.ModuloTarefa
 {
     public partial class DialogTarefaFiltro : Form
     {
